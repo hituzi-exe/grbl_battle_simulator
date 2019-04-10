@@ -189,3 +189,125 @@
   git log --all --graph --decorate --oneline みたいなのを出したい。
 
 
+### Store sample
+entities:{
+    Djeeta:{
+        rank:"225",
+        element:"earth|air|fire|water|light|dark",
+        job:{
+            id:"",
+        },
+        abilitys:[
+            {id:""},
+            {id:""},
+            {id:""},
+            {id:""}
+        ],
+        supportabilitys:[
+            {},
+            {},
+        ],
+        limitbonus:[]
+
+    },
+    Characters:{
+        main:[
+            {id:"",},
+            {id:"",},
+            {id:"",},
+        ],
+        sub:[
+            {id:"",},
+            {id:"",},
+        ]
+    },
+    Weapon:{
+        main:{
+            id:"",
+            lv:"",
+            slv:"",
+            plus:"",
+        },
+        sub:[
+            {
+                id:"",
+                lv:"",
+                slv:"",
+                plus:"",
+            }, ...
+        ]
+    },
+    Summon:{},
+    Enemy:{},
+    Battle:{},
+}
+,masterData:{
+    DjeetaJobs:[
+        {
+            id:"",
+            name:"",
+
+        }
+    ]
+    Characters:[
+        {
+            id:"",
+            name:"",
+            hp:"",
+            attack:"",
+            element:"earth|air|fire|water|light|dark",
+            abilitys:[
+                {},{},{},{}
+            ],
+            supportabilitys:[
+                {},{}
+            ],
+        },
+        ...
+    ]
+    Weapons:[
+        {
+            id:"",
+            name:"",
+            maxlv:"",
+            element:"earth|air|fire|water|light|dark",
+            hp:"",
+            attack:"",
+            maxhp:"",
+            maxattack:"",
+            esoteric,:"",
+            skills:[
+                {id:""},
+                {id:""},
+            ]
+        },
+        ...
+    ],
+    WeaponSkills:[
+        {
+            id:"",
+            name:"",
+            group:"",
+            //TODO その他の属性はダメージ計算式を正確に把握してから記述する
+        },
+        ...
+    ],
+    Summons:[
+        {
+            id:"",
+            name:"",
+            element:"earth|air|fire|water|light|dark",
+            bless:"",
+
+        }
+    ],
+}
+,ui:{
+    DjeetaView:{},
+    CharactersView:{},
+    WeaponView:{},
+    SummonView:{},
+    EnemyView:{},
+    BattleView:{},
+}
+
