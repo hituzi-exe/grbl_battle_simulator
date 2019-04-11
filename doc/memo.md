@@ -213,7 +213,7 @@
 詳細はlogtree.mdに記述
 
 ### Store sample
-entities:{
+settings:{
     Djeeta:{
         rank:"225",
         element:"earth|air|fire|water|light|dark",
@@ -263,49 +263,61 @@ entities:{
     Summon:{},
     Enemy:{},
     Battle:{},
-}
-,masterData:{
-    DjeetaJobs:[
-        {
-            id:"",
-            name:"",
-
-        }
-    ]
-    Characters:[
-        {
-            id:"",
-            name:"",
-            hp:"",
-            attack:"",
-            element:"earth|air|fire|water|light|dark",
-            abilitys:[
-                {},{},{},{}
-            ],
-            supportabilitys:[
-                {},{}
-            ],
-        },
-        ...
-    ]
-    Weapons:[
-        {
-            id:"",
-            name:"",
-            maxlv:"",
-            element:"earth|air|fire|water|light|dark",
-            hp:"",
-            attack:"",
-            maxhp:"",
-            maxattack:"",
-            esoteric,:"",
-            skills:[
-                {id:""},
-                {id:""},
-            ]
-        },
-        ...
-    ],
+},
+masterData:{
+    DjeetaJobs:{
+        fetchStatus:"",
+        entities: [
+            {
+                id:"",
+                name:"",
+            },
+            {
+                id:"",
+                name:"",
+            },
+        ],
+    },
+    Characters:{
+        fetchStatus:"",
+        entities: [
+            {
+                id: "",
+                name: "",
+                hp: "",
+                attack: "",
+                element: "earth|air|fire|water|light|dark",
+                abilitys: [
+                    {},{},{},{}
+                ],
+                supportabilitys: [
+                    {},{}
+                ],
+            },
+            ...
+        ]
+    },
+    Weapons:{
+        fetchStatus:"",
+        entities: [
+            {
+                id:"",
+                name:"",
+                maxlv:"",
+                element:"earth|air|fire|water|light|dark",
+                hp:"",
+                attack:"",
+                maxhp:"",
+                maxattack:"",
+                esoteric,:"",
+                skills:[
+                    {id:""},
+                    {id:""},
+                ]
+            },
+            ...
+        ]
+    },
     WeaponSkills:[
         {
             id:"",
@@ -324,8 +336,17 @@ entities:{
 
         }
     ],
+},
+battleLog:{
+    rootNode: {},
+    nodes: [
+        "id": {
+            id: "",
+        }
+    ]
+
 }
-,ui:{
+ui: { //それぞれのコンポーネントの持たせていいかも
     DjeetaView:{},
     CharactersView:{},
     WeaponView:{},
