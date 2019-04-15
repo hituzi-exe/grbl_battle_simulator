@@ -25,7 +25,7 @@ type HogeProps = OwnProps & HogeState & HogeActions;
 ```
 type HogeProps = OwnProps & HogeState;
 ```
-に変更して、inputのonChangeを消せば画面は表示されたけども当然propsは更新されない。とにかくHogeActionsをセットしてやらないと動かない。
+に変更して、HogeActionsのメソッドを使ってるinputのonChangeを消せば画面は表示されたけども当然propsは更新されない。とにかくHogeActionsをセットしてやらないと動かない。
 
 これから先はググっても答えが出てこないので、
 四苦八苦しながら色々いじってみたら
@@ -75,3 +75,16 @@ export class HogeComponent extends React.Component<HogeProps> {
 これだけ動いたら実装に移れるだろう。
 ヘッダー、サイドバー、メインコンテンツの基本的なページ構成を構築していこう。
 
+### Material-UIの導入
+ゼロからCSS書きたくないのでそれっぽくてかっこいいのを導入しようと思う。
+Material-UIの登場である。
+
+### Paperbaseの導入
+ここからよさげなサンプル画面をとってくる。
+<https://material-ui.com/premium-themes/>
+
+でもな、typescriptで書かれてないのよ。
+んで、ES6からtypescriptへの変換に手間取った。
+なんか表示変だし、でも表示はできたし一旦コミット。
+
+reduxとの連携はこれからだ。
