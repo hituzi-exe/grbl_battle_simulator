@@ -167,10 +167,9 @@ To create a production build, use npm run build.
 なんとcreate-react-appコマンドには`--typescript`オプションが存在するらしい。
 <https://qiita.com/IzumiSy/items/b7d8a96eacd2cd8ad510>ここで初めて知った…知らなかったそんなの
 
-
 もともとJavaとかVB.NETとか静的型付け言語の出身なんでそっちのほうがよくなじむだろう。
-
 さっき作ったのを削除、`--typescript`オプションを付けてもう一回実行する。
+
 ```
 > create-react-app grbl_battle_simulator --typescript
 
@@ -273,6 +272,195 @@ found 0 vulnerabilities
 ```
 
 #### Action実装
+サンプルページそのまま実装
+
+```typescript : src/actions/hogeAction.ts
+import actionCreatorFactory from 'typescript-fsa';
+
+const actionCreator = actionCreatorFactory();
+
+export const hogeActions = {
+  updateName: actionCreator<string>('ACTIONS_UPDATE_NAME'),
+  updateEmail: actionCreator<string>('ACTIONS_UPDATE_EMAIL')
+};
+```
+
 #### Reducer実装
+これもサンプルページそのまま実装
+
+``` typescript : src/states/hogeState.ts
+import { reducerWithInitialState } from 'typescript-fsa-reducers';
+import { hogeActions } from '../actions/hogeActions';
+
+export interface HogeState {
+  name: string;
+  email: string;
+}
+
+const initialState: HogeState = {
+  name: '',
+  email: ''
+};
+
+export const hogeReducer = reducerWithInitialState(initialState)
+  .case(hogeActions.updateName, (state, name) => {
+    return Object.assign({}, state, { name });
+  })
+  .case(hogeActions.updateEmail, (state, email) => {
+    return Object.assign({}, state, { email });
+  });
+
+```
+
 #### Store実装
+またまたサンプルページそのまま実装
+
+```ts : src/store.ts
+import { createStore, combineReducers } from 'redux';
+import { hogeReducer, HogeState } from './states/hogeState';
+
+export type AppState = {
+  hoge: HogeState
+};
+
+const store = createStore(
+  combineReducers<AppState>({
+    hoge: hogeReducer
+  })
+);
+
+export default store;
+```
+
+
+#### Container実装
+またしてもサンプルページそのまま実装したかったけどエラー発生。
+
+```typescript : src/containers/hogeContainer.ts
+import { Action } from 'typescript-fsa';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { AppState } from '../store';
+import { hogeActions } from '../actions/hogeActions';
+import { HogeComponent } from '../components/hogeComponent';
+
+export interface HogeActions {
+  updateName: (v: string) => Action<string>;
+  updateEmail: (v: string) => Action<string>;
+}
+
+function mapDispatchToProps(dispatch: Dispatch<void>) {
+  return {
+    updateName: (v: string) => dispatch(hogeActions.updateName(v)),
+    updateEmail: (v: string) => dispatch(hogeActions.updateEmail(v))
+  };
+}
+
+function mapStateToProps(appState: AppState) {
+  return Object.assign({}, appState.hoge);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HogeComponent);
+```
+
+```
+型 'void' は制約 'Action<any>' を満たしていません。ts(2344)
+```
+
+
+
+#### Component実装
+```tsx : src/components/hogeComponent.tsx
+import * as React from 'react';
+import { HogeState } from '../states/hogeState';
+import { HogeActions } from '../containers/hogeContainer';
+
+interface OwnProps {}
+
+type HogeProps = OwnProps & HogeState & HogeActions;
+
+export const HogeComponent: React.SFC<HogeProps> = (props: HogeProps) => {
+  return (
+    <div>
+      <div className="field">
+        <input
+          type="text"
+          placeholder="name"
+          value={props.name}
+          onChange={(e) => props.updateName(e.target.value)}
+        />
+      </div>
+      <div className="field">
+        <input
+          type="email"
+          placeholder="email"
+          value={props.email}
+          onChange={(e) => props.updateEmail(e.target.value)}
+        />
+      </div>
+    </div>
+  );
+};
+```
+
+
+#### App.tsxへの追加
+ひたすらサンプルページそのまま実装
+```tsx :src/App.tsx
+import * as React from 'react';
+import HogeContainer from '../src/containers/hogeContainer';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <HogeContainer />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+#### index.tsxの更新
+```tsx :src/App.tsx
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import Store from './store';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import './index.css';
+
+ReactDOM.render(
+  <Provider store={Store}>
+    <App />
+  </Provider>,
+  document.getElementById('root') as HTMLElement
+);
+
+registerServiceWorker();
+```
+
+#### エラー発生
+死んだ。
+```
+C:/projects/example/grbl_battle_simulator/src/Frontend/grbl_battle_simulator/src/App.tsx
+TypeScript error: Type '{}' is missing the following properties from type 'Readonly<Pick<HogeProps, "updateName" | "updateEmail">>': updateName, updateEmail  TS2739
+     6 |     return (
+     7 |       <div className="App">
+  >  8 |         <HogeContainer />
+       |          ^
+     9 |       </div>
+    10 |     );
+    11 |   }
+```
+
+typescriptなんもわからん・・・  
+TS2739でググるとHogeContainerのコンストラクタにデフォルト値を設定しないといけない？っぽい？
+
+
+
+
 
