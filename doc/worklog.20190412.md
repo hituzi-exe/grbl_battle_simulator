@@ -367,6 +367,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(HogeComponent);
 型 'void' は制約 'Action<any>' を満たしていません。ts(2344)
 ```
 
+次の修正でいけた
+```ts:変更前
+function mapDispatchToProps(dispatch: Dispatch<void>) {
+```
+```ts:変更後
+function mapDispatchToProps(dispatch: Dispatch<any>) {
+```
 
 
 #### Component実装
@@ -424,6 +431,7 @@ export default App;
 ```
 
 #### index.tsxの更新
+これも脳みそ使わずにそのまま実装。
 ```tsx :src/App.tsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -442,25 +450,3 @@ ReactDOM.render(
 
 registerServiceWorker();
 ```
-
-#### エラー発生
-死んだ。
-```
-C:/projects/example/grbl_battle_simulator/src/Frontend/grbl_battle_simulator/src/App.tsx
-TypeScript error: Type '{}' is missing the following properties from type 'Readonly<Pick<HogeProps, "updateName" | "updateEmail">>': updateName, updateEmail  TS2739
-     6 |     return (
-     7 |       <div className="App">
-  >  8 |         <HogeContainer />
-       |          ^
-     9 |       </div>
-    10 |     );
-    11 |   }
-```
-
-typescriptなんもわからん・・・  
-TS2739でググるとHogeContainerのコンストラクタにデフォルト値を設定しないといけない？っぽい？
-
-
-
-
-
