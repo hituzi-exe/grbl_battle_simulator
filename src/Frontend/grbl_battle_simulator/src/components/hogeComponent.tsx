@@ -1,31 +1,39 @@
 import * as React from 'react';
 import { HogeState } from '../states/hogeState';
 import { HogeActions } from '../containers/hogeContainer';
+import { hogeActions } from '../actions/hogeAction';
 
-//interface OwnProps {}
+interface OwnProps {}
 
-//type HogeProps = OwnProps & HogeState & HogeActions;
-type HogeProps = HogeState & HogeActions;
+type HogeProps = OwnProps & HogeState & HogeActions;
 
-export const HogeComponent: React.SFC<HogeProps> = (props: HogeProps) => {
-  return (
-    <div>
+export class HogeComponent extends React.Component<HogeProps> {
+  public static defaultProps: HogeProps = {
+    name: "",
+    email: "",
+    updateName: hogeActions.updateName,
+    updateEmail: hogeActions.updateEmail,
+  };
+  
+  public render() {
+    return (<div>
       <div className="field">
         <input
           type="text"
           placeholder="name"
-          value={props.name}
-          onChange={(e) => props.updateName(e.target.value)}
+          value={this.props.name}
+          onChange={(e) => this.props.updateName(e.target.value)}
         />
       </div>
       <div className="field">
         <input
           type="email"
           placeholder="email"
-          value={props.email}
-          onChange={(e) => props.updateEmail(e.target.value)}
+          value={this.props.email}
+          onChange={(e) => this.props.updateEmail(e.target.value)}
         />
       </div>
     </div>
-  );
+    );
+  }
 };
