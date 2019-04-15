@@ -47,7 +47,7 @@ export class HogeComponent extends React.Component<HogeProps> {
     updateName: hogeActions.updateName,
     updateEmail: hogeActions.updateEmail,
   };
-  
+
   public render() {
     return (<div>
       <div className="field">
@@ -85,6 +85,7 @@ Material-UIの登場である。
 
 でもな、typescriptで書かれてないのよ。
 んで、ES6からtypescriptへの変換に手間取った。
-なんか表示変だし、でも表示はできたし一旦コミット。
+なんか表示変だけど、表示はできたし一旦コミット。
 
-reduxとの連携はこれからだ。
+reduxとの連携はこれから。あとは余分なものを消していこう。
+サイドバーの見た目、動作から作りこんでいく。

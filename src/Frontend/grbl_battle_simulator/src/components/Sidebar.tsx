@@ -12,34 +12,24 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
 import PeopleIcon from '@material-ui/icons/People';
-import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
-import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual';
+import AppsIcon from '@material-ui/icons/Apps';
+import PlayarrowIcon from '@material-ui/icons/PlayArrow';
 import PublicIcon from '@material-ui/icons/Public';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent';
-import TimerIcon from '@material-ui/icons/Timer';
-import SettingsIcon from '@material-ui/icons/Settings';
-import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 
+//TODO Storeに移動させる
 const categories = [
     {
       id: 'Develop',
       children: [
-        { id: 'Authentication', icon: <PeopleIcon />, active: true },
-        { id: 'Database', icon: <DnsRoundedIcon /> },
-        { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-        { id: 'Hosting', icon: <PublicIcon /> },
-        { id: 'Functions', icon: <SettingsEthernetIcon /> },
-        { id: 'ML Kit', icon: <SettingsInputComponentIcon /> },
-      ],
-    },
-    {
-      id: 'Quality',
-      children: [
-        { id: 'Analytics', icon: <SettingsIcon /> },
-        { id: 'Performance', icon: <TimerIcon /> },
-        { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
+        { id: 'Djeeta', icon: <PersonIcon/>, active: true },
+        { id: 'Characters', icon: <PeopleIcon /> },
+        { id: 'Weapon', icon: <AppsIcon /> },
+        { id: 'Summon', icon: <PublicIcon /> },
+        { id: 'Enemy', icon: <WhatshotIcon /> },
+        { id: 'Battle', icon: <PlayarrowIcon /> },
       ],
     },
   ];
@@ -95,10 +85,10 @@ function Sidebar(props: Props) {
     const { classes, ...other  } = props;
 
     return (
-        <Drawer variant="permanent" {...other}>
+      <Drawer variant="permanent" {...other}>
         <List disablePadding>
           <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
-            Paperbase
+            Battle sim
           </ListItem>
           <ListItem className={classNames(classes.item, classes.itemCategory)}>
             <ListItemIcon>
@@ -149,7 +139,7 @@ function Sidebar(props: Props) {
             </React.Fragment>
           ))}
         </List>
-  </Drawer>
+      </Drawer>
     );
 };
 
