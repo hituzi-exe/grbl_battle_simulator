@@ -11,25 +11,37 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
+
 import PersonIcon from '@material-ui/icons/Person';
 import PeopleIcon from '@material-ui/icons/People';
 import AppsIcon from '@material-ui/icons/Apps';
 import PlayarrowIcon from '@material-ui/icons/PlayArrow';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import PublicIcon from '@material-ui/icons/Public';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 
 //TODO Storeに移動させる
 const categories = [
     {
-      id: 'BattleSimulator',
+      id: 'Settings',
       children: [
         { id: 'Djeeta', icon: <PersonIcon/>, active: true },
         { id: 'Characters', icon: <PeopleIcon /> },
         { id: 'Weapon', icon: <AppsIcon /> },
         { id: 'Summon', icon: <PublicIcon /> },
         { id: 'Enemy', icon: <WhatshotIcon /> },
+      ],
+    },
+    {
+      id: 'Battle',
+      children: [
         { id: 'Battle', icon: <PlayarrowIcon /> },
+      ],
+    },
+    {
+      id: 'Help',
+      children: [
+        { id: 'help', icon: <QuestionAnswerIcon /> },
       ],
     },
   ];
@@ -88,19 +100,7 @@ function Sidebar(props: Props) {
       <Drawer variant="permanent" {...other}>
         <List disablePadding>
           <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
-            Battle sim
-          </ListItem>
-          <ListItem className={classNames(classes.item, classes.itemCategory)}>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{
-                primary: classes.itemPrimary,
-              }}
-            >
-              Project Overview
-            </ListItemText>
+          Battle Simulator
           </ListItem>
           {categories.map(({ id, children }) => (
             <React.Fragment key={id}>

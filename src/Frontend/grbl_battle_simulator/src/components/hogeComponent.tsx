@@ -16,9 +16,34 @@ export class HogeComponent extends React.Component<HogeProps> {
     updateEmail: hogeActions.updateEmail,
   };
   
+  // public render() {
+  //   return (
+  //     <div>
+  //       <Paperbase />
+  //     </div>
+  //   );
+  // }
+
   public render() {
     return (
-      <Paperbase />
+      <div>
+        <div className="field">
+          <input
+            type="text"
+            placeholder="name"
+            value={this.props.name}
+            onChange={(e) => this.props.updateName(e.target.value)}
+            />
+        </div>
+        <div className="field">
+          <input
+            type="email"
+            placeholder="email"
+            value={this.props.email}
+            onChange={(e) => this.props.updateEmail(e.target.value)}
+            />
+        </div>
+      </div>
     );
   }
 };

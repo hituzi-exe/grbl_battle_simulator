@@ -5,16 +5,26 @@ import { connect } from 'react-redux';
 import { AppState } from '../store';
 import { hogeActions } from '../actions/hogeAction';
 import { HogeComponent } from '../components/hogeComponent';
+import { sidebarActions } from '../actions/sidebarAction';
+// import { styles, SidebarComponent } from '../components/sidebarComponent';
+
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
 export interface HogeActions {
   updateName: (v: string) => Action<string>;
   updateEmail: (v: string) => Action<string>;
 }
 
+export interface SidebarActions {
+  selectDjeetaMenu: () => Action<void>;
+  selectCharactersMenu: () => Action<void>;
+}
+
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    updateName: (v: string) => dispatch(hogeActions.updateName(v)),
-    updateEmail: (v: string) => dispatch(hogeActions.updateEmail(v))
+    selectDjeetaMenu: () => dispatch(sidebarActions.selectDjeetaMenu()),
+    selectCharactersMenu: () => dispatch(sidebarActions.selectCharactersMenu())
   };
 }
 

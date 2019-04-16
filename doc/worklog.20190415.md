@@ -30,6 +30,10 @@ type HogeProps = OwnProps & HogeState;
 これから先はググっても答えが出てこないので、
 四苦八苦しながら色々いじってみたら
 hogeActionから持ってくればいいと判明。最終的に次のようになった。
+
+TODO:参考にさせてもらった記事に修正ソースをコメントすること。
+<https://qiita.com/IzumiSy/items/b7d8a96eacd2cd8ad510>
+
 ```tsx : src/components/hogeComponent.tsx
 import * as React from 'react';
 import { HogeState } from '../states/hogeState';
