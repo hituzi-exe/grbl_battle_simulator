@@ -11,7 +11,7 @@ const initialState: SidebarState = {
   email: ''
 };
 
-export const hogeReducer = reducerWithInitialState(initialState)
+export const sidebarReducer = reducerWithInitialState(initialState)
   .case(hogeActions.updateName, (state, name) => {
     return Object.assign({}, state, { name });
   })

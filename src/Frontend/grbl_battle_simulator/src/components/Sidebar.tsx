@@ -22,7 +22,7 @@ import WhatshotIcon from '@material-ui/icons/Whatshot';
 //TODO Storeに移動させる
 const categories = [
     {
-      id: 'Develop',
+      id: 'BattleSimulator',
       children: [
         { id: 'Djeeta', icon: <PersonIcon/>, active: true },
         { id: 'Characters', icon: <PeopleIcon /> },

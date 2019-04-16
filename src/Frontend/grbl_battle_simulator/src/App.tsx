@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BattleSimContainer from '../src/containers/battleSimContainer';
+import BattleSimContainer from './containers/sidebarContainer';
 
 class App extends React.Component {
   render() {

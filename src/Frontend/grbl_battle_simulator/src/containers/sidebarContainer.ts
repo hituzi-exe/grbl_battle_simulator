@@ -1,6 +1,7 @@
 import { Action } from 'typescript-fsa';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+
 import { AppState } from '../store';
 import { hogeActions } from '../actions/hogeAction';
 import { HogeComponent } from '../components/hogeComponent';
