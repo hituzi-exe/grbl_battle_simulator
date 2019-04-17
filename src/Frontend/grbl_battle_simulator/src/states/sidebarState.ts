@@ -4,13 +4,20 @@ import { sidebarActions } from '../actions/sidebarAction';
 export interface SidebarState {
   active: string,
   categories: {
-    [categories: number]: {
+    id: string,
+    children: {
       id: string,
-      children: {
-        [children: number]: {id: string};
-      };
-    }
-  }
+    }[]
+  }[]
+}
+
+export interface Categorie {
+  id: string,
+  children: Child[]
+}
+
+export interface Child {
+  id: string,
 }
 
 export const initialState: SidebarState = {
@@ -42,9 +49,6 @@ export const initialState: SidebarState = {
 };
 
 export const sidebarReducer = reducerWithInitialState(initialState)
-  .case(sidebarActions.selectDjeetaMenu, (state) => {
-    return Object.assign({}, state, { active: 'Djeeta' });
-  })
-  .case(sidebarActions.selectCharactersMenu, (state) => {
-    return Object.assign({}, state, { active: 'Characters' });
+  .case(sidebarActions.selectMenu, (state, menuid) => {
+    return Object.assign({}, state, {active: menuid});
   });

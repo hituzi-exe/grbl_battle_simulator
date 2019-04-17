@@ -2,7 +2,6 @@ import * as React from 'react';
 import { HogeState } from '../states/hogeState';
 import { HogeActions } from '../containers/hogeContainer';
 import { hogeActions } from '../actions/hogeAction';
-import Paperbase from './Paperbase'
 
 interface OwnProps {}
 
@@ -15,14 +14,6 @@ export class HogeComponent extends React.Component<HogeProps> {
     updateName: hogeActions.updateName,
     updateEmail: hogeActions.updateEmail,
   };
-  
-  // public render() {
-  //   return (
-  //     <div>
-  //       <Paperbase />
-  //     </div>
-  //   );
-  // }
 
   public render() {
     return (
