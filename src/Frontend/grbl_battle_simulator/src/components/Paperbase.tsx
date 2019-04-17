@@ -153,31 +153,31 @@ export interface Props extends WithStyles<typeof styles> {}
 function Paperbase(props: Props) {
     const { classes } = props;
     return (
-        <MuiThemeProvider theme={theme}>
-          <div className={classes.root}>
-            <CssBaseline />
-            <nav className={classes.drawer}>
-              <Hidden smUp implementation="js">
-                <Sidebar
-                  PaperProps={{ style: { width: drawerWidth } }}
-                  variant="temporary"
-                />
-              </Hidden>
-              <Hidden xsDown implementation="css">
-                <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
-              </Hidden>
-            </nav>
-            <div className={classes.appContent}>
-              <Header onDrawerToggle={
-                () => {mobileOpen: true}
-              } />
-              <main className={classes.mainContent}>
-                <Content />
-              </main>
-            </div>
+      <MuiThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <CssBaseline />
+          <nav className={classes.drawer}>
+            <Hidden smUp implementation="js">
+              <Sidebar
+                PaperProps={{ style: { width: drawerWidth } }}
+                variant="temporary"
+              />
+            </Hidden>
+            <Hidden xsDown implementation="css">
+              <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
+            </Hidden>
+          </nav>
+          <div className={classes.appContent}>
+            <Header onDrawerToggle={
+              () => {mobileOpen: true}
+            } />
+            <main className={classes.mainContent}>
+              <Content />
+            </main>
           </div>
-        </MuiThemeProvider>
-      );
+        </div>
+      </MuiThemeProvider>
+    );
 
 }
 
