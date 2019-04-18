@@ -6,8 +6,7 @@ import Hidden from '@material-ui/core/Hidden';
 
 import HogeContainer from '../src/containers/hogeContainer';
 import SidebarContainer from './containers/sidebarContainer';
-// import HeaderContainer from './containers/headerContainer';
-import { HeaderComponent } from './components/HeaderComponent';
+import HeaderContainer from './containers/headerContainer';
 
 let theme = createMuiTheme({
   typography: {
@@ -125,7 +124,7 @@ theme = {
   },
 };
 
-const drawerWidth = 256;
+const drawerWidth = 215;
 
 const styles = createStyles({
   root: {
@@ -155,6 +154,7 @@ export interface Props extends WithStyles<typeof styles> {}
 class App extends React.Component<Props> {
   render() {
     const { classes } = this.props;
+
     return (
       <MuiThemeProvider theme={theme}>
         <div className={classes.root}>
@@ -163,7 +163,7 @@ class App extends React.Component<Props> {
             <SidebarContainer PaperProps={{ style: { width: drawerWidth } }} />
           </nav>
           <div className={classes.appContent}>
-            <HeaderComponent />
+            <HeaderContainer />
             <main className={classes.mainContent}>{/* <Content /> */}</main>
           </div>
         </div>

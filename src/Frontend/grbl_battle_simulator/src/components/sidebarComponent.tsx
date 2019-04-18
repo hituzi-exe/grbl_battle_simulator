@@ -96,7 +96,7 @@ const categories = [
 ];
 
 export const SidebarComponent: React.SFC<any> = (props: SidebarProps & Props) => {
-  const { classes, ...other } = props;
+  const { classes, active, ...other } = props;
 
   return (
     <Drawer variant="permanent" {...other}>
@@ -124,7 +124,7 @@ export const SidebarComponent: React.SFC<any> = (props: SidebarProps & Props) =>
                 className={classNames(
                   classes.item,
                   classes.itemActionable,
-                  other.active === childId && classes.itemActiveItem
+                  active === childId && classes.itemActiveItem
                 )}
               >
                 <ListItemIcon>{icon}</ListItemIcon>

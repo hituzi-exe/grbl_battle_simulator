@@ -2,17 +2,17 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { headerActions } from '../actions/headerAction';
 
 export interface HeaderState {
-  login: boolean;
+  isLogin: boolean;
 }
 
 export const initialState: HeaderState = {
-  login: false,
+  isLogin: false,
 };
 
-export const sidebarReducer = reducerWithInitialState(initialState)
+export const headerReducer = reducerWithInitialState(initialState)
   .case(headerActions.login, state => {
-    return Object.assign({}, state, { login: true });
+    return Object.assign({}, state, { isLogin: true });
   })
   .case(headerActions.logout, state => {
-    return Object.assign({}, state, { login: false });
+    return Object.assign({}, state, { isLogin: false });
   });
