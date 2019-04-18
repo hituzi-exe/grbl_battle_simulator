@@ -3,9 +3,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { initialState, SidebarState } from '../states/sidebarState';
+import { SidebarState } from '../states/sidebarState';
 import { SidebarActions } from '../containers/sidebarContainer';
-import { sidebarActions } from '../actions/sidebarAction';
 
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -29,7 +28,7 @@ type SidebarProps = OwnProps & SidebarState & SidebarActions;
 
 interface Props extends WithStyles<typeof styles> {}
 
-const styles = (theme: any) =>
+export const styles = (theme: any) =>
   createStyles({
     categoryHeader: {
       paddingTop: 16,
@@ -96,102 +95,53 @@ const categories = [
   },
 ];
 
-export class SidebarComponent extends React.Component<SidebarProps> {
-  public static defaultProps: SidebarProps = Object.assign({}, initialState, sidebarActions);
+export const SidebarComponent: React.SFC<any> = (props: SidebarProps & Props) => {
+  const { classes, ...other } = props;
 
-  private categories = [
-    {
-      id: 'Settings',
-      children: [
-        { id: 'Djeeta', icon: <PersonIcon /> },
-        { id: 'Characters', icon: <PeopleIcon /> },
-        { id: 'Weapon', icon: <AppsIcon /> },
-        { id: 'Summon', icon: <PublicIcon /> },
-        { id: 'Enemy', icon: <WhatshotIcon /> },
-      ],
-    },
-    {
-      id: 'Battle',
-      children: [{ id: 'Battle', icon: <PlayarrowIcon /> }],
-    },
-    {
-      id: 'Config',
-      children: [{ id: 'config', icon: <SettingsIcon /> }, { id: 'help', icon: <QuestionAnswerIcon /> }],
-    },
-  ];
-
-  public render() {
-    return (
-      <Drawer variant="permanent">
-        <List disablePadding>
-          <ListItem>Battle Simulator</ListItem>
-          {this.categories.map(({ id, children }) => (
-            <React.Fragment key={id}>
-              <ListItem>
-                <ListItemText>{id}</ListItemText>
+  return (
+    <Drawer variant="permanent" {...other}>
+      <List disablePadding>
+        <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
+          Battle Simulator
+        </ListItem>
+        {categories.map(({ id, children }) => (
+          <React.Fragment key={id}>
+            <ListItem className={classes.categoryHeader}>
+              <ListItemText
+                classes={{
+                  primary: classes.categoryHeaderPrimary,
+                }}
+              >
+                {id}
+              </ListItemText>
+            </ListItem>
+            {children.map(({ id: childId, icon }) => (
+              <ListItem
+                button
+                dense
+                key={childId}
+                onClick={e => other.selectMenu(childId)}
+                className={classNames(
+                  classes.item,
+                  classes.itemActionable,
+                  other.active === childId && classes.itemActiveItem
+                )}
+              >
+                <ListItemIcon>{icon}</ListItemIcon>
+                <ListItemText
+                  classes={{
+                    primary: classes.itemPrimary,
+                    textDense: classes.textDense,
+                  }}
+                >
+                  {childId}
+                </ListItemText>
               </ListItem>
-              {children.map(({ id: childId, icon }) => (
-                <ListItem button dense key={childId} onClick={e => this.props.selectMenu(childId)}>
-                  <ListItemIcon>{icon}</ListItemIcon>
-                  <ListItemText>{childId}</ListItemText>
-                </ListItem>
-              ))}
-              <Divider />
-            </React.Fragment>
-          ))}
-        </List>
-      </Drawer>
-    );
-  }
-}
-
-// function SidebarComponent(props: Props) {
-//   const { classes, ...other  } = props;
-
-//   return (
-//     <Drawer variant="permanent" {...other}>
-//       <List disablePadding>
-//         <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
-//         Battle Simulator
-//         </ListItem>
-//         {categories.map(({ id, children }) => (
-//           <React.Fragment key={id}>
-//             <ListItem className={classes.categoryHeader}>
-//               <ListItemText
-//                 classes={{
-//                   primary: classes.categoryHeaderPrimary,
-//                 }}
-//               >
-//                 {id}
-//               </ListItemText>
-//             </ListItem>
-//             {children.map(({ id: childId, icon }) => (
-//               <ListItem
-//                 button
-//                 dense
-//                 key={childId}
-//                 className={classNames(
-//                   classes.item,
-//                   classes.itemActionable,
-//                 )}
-//               >
-//                 <ListItemIcon>{icon}</ListItemIcon>
-//                 <ListItemText
-//                   classes={{
-//                     primary: classes.itemPrimary,
-//                     textDense: classes.textDense,
-//                   }}
-//                 >
-//                   {childId}
-//                 </ListItemText>
-//               </ListItem>
-//             ))}
-//             <Divider className={classes.divider} />
-//           </React.Fragment>
-//         ))}
-//       </List>
-//     </Drawer>
-//   );
-// };
-
-// export default withStyles(styles)(SidebarComponent);
+            ))}
+            <Divider className={classes.divider} />
+          </React.Fragment>
+        ))}
+      </List>
+    </Drawer>
+  );
+};

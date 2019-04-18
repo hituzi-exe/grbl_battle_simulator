@@ -160,7 +160,7 @@ class App extends React.Component<Props> {
         <div className={classes.root}>
           <CssBaseline />
           <nav className={classes.drawer}>
-            <SidebarContainer />
+            <SidebarContainer PaperProps={{ style: { width: drawerWidth } }} />
           </nav>
           <div className={classes.appContent}>
             <HeaderComponent />

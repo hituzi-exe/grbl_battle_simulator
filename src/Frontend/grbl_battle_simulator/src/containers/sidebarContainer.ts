@@ -3,7 +3,9 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from '../store';
 import { sidebarActions } from '../actions/sidebarAction';
-import { SidebarComponent } from '../components/sidebarComponent';
+import { styles, SidebarComponent } from '../components/sidebarComponent';
+
+import { withStyles } from '@material-ui/core/styles';
 
 export interface SidebarActions {
   selectMenu: (v: string) => Action<string>;
@@ -19,7 +21,9 @@ function mapStateToProps(appState: AppState) {
   return Object.assign({}, appState.sidebar);
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SidebarComponent);
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SidebarComponent)
+);
