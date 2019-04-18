@@ -1,47 +1,54 @@
-## 2019/04/12
+# 2019/04/12
+
 一通り仕様も決まったので開発に着手。
-webアプリにするので react+redux 使ってみようとおもう。
-管理する情報が多すぎるので、勉強もかねてredux使ってみる。
+web アプリにするので react+redux 使ってみようとおもう。
+管理する情報が多すぎるので、勉強もかねて redux 使ってみる。
 
-### 開発環境の構築
+## 開発環境の構築
+
 OS:Windows 10  
-エディタ:vscodeとvim  
+エディタ:vscode と vim  
 シェル:cmder  
-ソース管理:git  
+ソース管理:git
 
-まずはnode.jsとnpmのバージョン確認、更新
-```
+まずは node.js と npm のバージョン確認、更新
+
+```console
 > npm -v
 6.4.1
 > node -v
 v8.11.1
 ```
 
-node.jsは頻繁にバージョンアップされるので、それ専用のバージョン管理ツールがあるとのこと。
+node.js は頻繁にバージョンアップされるので、それ専用のバージョン管理ツールがあるとのこと。
 
-### nodistのインストール
-次のページからnodeistのインストーラーをダウンロード。
+### nodist のインストール
+
+次のページから nodeist のインストーラーをダウンロード。
 <https://github.com/nullivex/nodist/releases>
 
-もともといれてたnode.js v8.11.1 をアンインストール
-これでnodeは動かなくなったはず。
+もともといれてた node.js v8.11.1 をアンインストール
+これで node は動かなくなったはず。
 
-```
+```console
 > node -v
 v11.13.0
 ```
-・・・あれ？
-まぁいいやnodist入れたときに標準で入ったんだろう。
 
-試しにnodist動かしてみる
-```
+・・・あれ？
+まぁいいや nodist 入れたときに標準で入ったんだろう。
+
+試しに nodist 動かしてみる
+
+```console
 > nodist
   (x64)
 > 11.13.0  (global: v11.13.0)
 ```
 
 最新版をインストールする。
-```
+
+```console
 > nodist dist
 ～（中略）～
   11.9.0
@@ -51,60 +58,70 @@ v11.13.0
   11.14.0
 ```
 
-11.14.0がnodistでインストールできる最新らしいのでそれを選択。
-```
+11.14.0 が nodist でインストールできる最新らしいのでそれを選択。
+
+```console
 > nodist + 11.14.0
  11.14.0 [===============] 25658/25658 KiB 100% 0.0s
 11.14.0
 ```
 
 バージョン確認。
-```
+
+```console
 > node -v
 v11.13.0
 ```
 
 切り替えるの忘れてた。
-```
+
+```console
 > nodist global 11.14.0
 11.14.0
 11.14.0 (global)
 ```
 
 再度バージョン確認
-```
+
+```console
 > node -v
 v11.14.0
 ```
-ok、node.jsの更新終了
 
-### npmの更新
+ok、node.js の更新終了
+
+### npm の更新
+
 まずはバージョン確認
-```
+
+```console
 > npm --version
 6.9.0
 ```
 
 最新っぽいけど一応更新してみる。
-```
+
+```console
 > npm update -g npm
 ```
 
 何も起きなかった。はやり最新だったらしい。
 
-### create-react-appのインストール
-ゼロからWebpackやBabelをいじってReactのセットアップできるほどの技量がないので
+### create-react-app のインストール
+
+ゼロから Webpack や Babel をいじって React のセットアップできるほどの技量がないので
 頼れるものには頼っていく。
 
-```
+```console
 > npm install -g create-react-app
 C:\Program Files (x86)\Nodist\bin\create-react-app -> C:\Program Files (x86)\Nodist\bin\node_modules\create-react-app\index.js
 + create-react-app@2.1.8
 added 63 packages from 20 contributors in 7.874s
 ```
 
-### create-react-appコマンドでアプリを作成
-```
+### create-react-app コマンドでアプリを作成
+
+```console
 > create-react-app grbl_battle_simulator
 
 Creating a new React app in C:\projects\example\grbl_battle_simulator\src\Frontend\grbl_battle_simulator.
@@ -143,10 +160,11 @@ We suggest that you begin by typing:
 Happy hacking!
 ```
 
-5分ぐらいでセットアップ完了。先輩エンジニアの気遣いで心があったけぇ・・・
+5 分ぐらいでセットアップ完了。先輩エンジニアの気遣いで心があったけぇ・・・
 
 ### アプリの動作確認
-```
+
+```console
 > npm start
 
 Compiled successfully!
@@ -163,14 +181,15 @@ To create a production build, use npm run build.
 ブラウザから<http://localhost:3000/>へアクセス。無事に表示された。
 これからどんどん作っていこうな
 
-### やっぱりtypescriptで書いてみよう
-なんとcreate-react-appコマンドには`--typescript`オプションが存在するらしい。
+### やっぱり typescript で書いてみよう
+
+なんと create-react-app コマンドには`--typescript`オプションが存在するらしい。
 <https://qiita.com/IzumiSy/items/b7d8a96eacd2cd8ad510>ここで初めて知った…知らなかったそんなの
 
-もともとJavaとかVB.NETとか静的型付け言語の出身なんでそっちのほうがよくなじむだろう。
+もともと Java とか VB.NET とか静的型付け言語の出身なんでそっちのほうがよくなじむだろう。
 さっき作ったのを削除、`--typescript`オプションを付けてもう一回実行する。
 
-```
+```console
 > create-react-app grbl_battle_simulator --typescript
 
 Creating a new React app in C:\projects\example\grbl_battle_simulator\src\Frontend\grbl_battle_simulator.
@@ -217,15 +236,17 @@ We suggest that you begin by typing:
 
 Happy hacking!
 ```
-これまた5分ぐらいでセットアップ完了。先輩エンジニアには足を向けて寝られないです。
 
+これまた 5 分ぐらいでセットアップ完了。先輩エンジニアには足を向けて寝られないです。
 
 ### はじめはパッケージをインストールして、あとは流れでお願いします。
 
-上記のURL<https://qiita.com/IzumiSy/items/b7d8a96eacd2cd8ad510>に従って最速でReact+Redux+TypeScriptなアプリを作っていく。
+上記の URL<https://qiita.com/IzumiSy/items/b7d8a96eacd2cd8ad510>に従って最速で React+Redux+TypeScript なアプリを作っていく。
 書いてあるコマンドをどんどん叩いていこう。
-#### reduxのインストール
-```
+
+#### redux のインストール
+
+```console
 > npm install --save redux react-redux
 npm WARN saveError ENOENT: no such file or directory, open 'C:\projects\example\grbl_battle_simulator\src\Frontend\package.json'
 npm notice created a lockfile as package-lock.json. You should commit this file.
@@ -255,7 +276,8 @@ added 5 packages from 38 contributors in 11.659s
 ```
 
 #### typescript-fsa
-```
+
+```console
 > npm install --save typescript-fsa typescript-fsa-reducers
 npm WARN saveError ENOENT: no such file or directory, open 'C:\projects\example\grbl_battle_simulator\src\Frontend\package.json'
 npm WARN enoent ENOENT: no such file or directory, open 'C:\projects\example\grbl_battle_simulator\src\Frontend\package.json'
@@ -271,7 +293,8 @@ added 2 packages from 2 contributors and audited 66 packages in 1.748s
 found 0 vulnerabilities
 ```
 
-#### Action実装
+#### Action 実装
+
 サンプルページそのまま実装
 
 ```typescript : src/actions/hogeAction.ts
@@ -281,14 +304,15 @@ const actionCreator = actionCreatorFactory();
 
 export const hogeActions = {
   updateName: actionCreator<string>('ACTIONS_UPDATE_NAME'),
-  updateEmail: actionCreator<string>('ACTIONS_UPDATE_EMAIL')
+  updateEmail: actionCreator<string>('ACTIONS_UPDATE_EMAIL'),
 };
 ```
 
-#### Reducer実装
+#### Reducer 実装
+
 これもサンプルページそのまま実装
 
-``` typescript : src/states/hogeState.ts
+```typescript : src/states/hogeState.ts
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { hogeActions } from '../actions/hogeActions';
 
@@ -299,7 +323,7 @@ export interface HogeState {
 
 const initialState: HogeState = {
   name: '',
-  email: ''
+  email: '',
 };
 
 export const hogeReducer = reducerWithInitialState(initialState)
@@ -309,10 +333,10 @@ export const hogeReducer = reducerWithInitialState(initialState)
   .case(hogeActions.updateEmail, (state, email) => {
     return Object.assign({}, state, { email });
   });
-
 ```
 
-#### Store実装
+#### Store 実装
+
 またまたサンプルページそのまま実装
 
 ```ts : src/store.ts
@@ -320,20 +344,20 @@ import { createStore, combineReducers } from 'redux';
 import { hogeReducer, HogeState } from './states/hogeState';
 
 export type AppState = {
-  hoge: HogeState
+  hoge: HogeState;
 };
 
 const store = createStore(
   combineReducers<AppState>({
-    hoge: hogeReducer
+    hoge: hogeReducer,
   })
 );
 
 export default store;
 ```
 
+#### Container 実装
 
-#### Container実装
 またしてもサンプルページそのまま実装したかったけどエラー発生。
 
 ```typescript : src/containers/hogeContainer.ts
@@ -352,7 +376,7 @@ export interface HogeActions {
 function mapDispatchToProps(dispatch: Dispatch<void>) {
   return {
     updateName: (v: string) => dispatch(hogeActions.updateName(v)),
-    updateEmail: (v: string) => dispatch(hogeActions.updateEmail(v))
+    updateEmail: (v: string) => dispatch(hogeActions.updateEmail(v)),
   };
 }
 
@@ -360,23 +384,28 @@ function mapStateToProps(appState: AppState) {
   return Object.assign({}, appState.hoge);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HogeComponent);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HogeComponent);
 ```
 
-```
+```console
 型 'void' は制約 'Action<any>' を満たしていません。ts(2344)
 ```
 
 次の修正でいけた
+
 ```ts:変更前
 function mapDispatchToProps(dispatch: Dispatch<void>) {
 ```
+
 ```ts:変更後
 function mapDispatchToProps(dispatch: Dispatch<any>) {
 ```
 
+#### Component 実装
 
-#### Component実装
 ```tsx : src/components/hogeComponent.tsx
 import * as React from 'react';
 import { HogeState } from '../states/hogeState';
@@ -390,29 +419,20 @@ export const HogeComponent: React.SFC<HogeProps> = (props: HogeProps) => {
   return (
     <div>
       <div className="field">
-        <input
-          type="text"
-          placeholder="name"
-          value={props.name}
-          onChange={(e) => props.updateName(e.target.value)}
-        />
+        <input type="text" placeholder="name" value={props.name} onChange={e => props.updateName(e.target.value)} />
       </div>
       <div className="field">
-        <input
-          type="email"
-          placeholder="email"
-          value={props.email}
-          onChange={(e) => props.updateEmail(e.target.value)}
-        />
+        <input type="email" placeholder="email" value={props.email} onChange={e => props.updateEmail(e.target.value)} />
       </div>
     </div>
   );
 };
 ```
 
+#### App.tsx への追加
 
-#### App.tsxへの追加
 ひたすらサンプルページそのまま実装
+
 ```tsx :src/App.tsx
 import * as React from 'react';
 import HogeContainer from '../src/containers/hogeContainer';
@@ -430,8 +450,10 @@ class App extends React.Component {
 export default App;
 ```
 
-#### index.tsxの更新
+#### index.tsx の更新
+
 これも脳みそ使わずにそのまま実装。
+
 ```tsx :src/App.tsx
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
