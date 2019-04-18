@@ -8,7 +8,7 @@ export interface HogeState {
 
 const initialState: HogeState = {
   name: '',
-  email: ''
+  email: '',
 };
 
 export const hogeReducer = reducerWithInitialState(initialState)

@@ -20,13 +20,13 @@ export class HeaderComponent extends React.Component {
             <IconButton color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" >
+            <Typography variant="h6" color="inherit">
               News
             </Typography>
-            <Button color="inherit" >Login</Button>
+            <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
       </div>
     );
   }
-};
+}

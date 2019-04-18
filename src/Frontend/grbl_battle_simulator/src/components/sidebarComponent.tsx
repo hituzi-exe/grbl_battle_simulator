@@ -23,148 +23,127 @@ import WhatshotIcon from '@material-ui/icons/Whatshot';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-interface OwnProps {} 
+interface OwnProps {}
 
 type SidebarProps = OwnProps & SidebarState & SidebarActions;
 
 interface Props extends WithStyles<typeof styles> {}
 
-const styles = (theme: any) => createStyles({
-  categoryHeader: {
-    paddingTop: 16,
-    paddingBottom: 16,
-  },
-  categoryHeaderPrimary: {
-    color: theme.palette.common.white,
-  },
-  item: {
-    paddingTop: 4,
-    paddingBottom: 4,
-    color: 'rgba(255, 255, 255, 0.7)',
-  },
-  itemCategory: {
-    backgroundColor: '#232f3e',
-    boxShadow: '0 -1px 0 #404854 inset',
-    paddingTop: 16,
-    paddingBottom: 16,
-  },
-  firebase: {
-    fontSize: 24,
-    fontFamily: theme.typography.fontFamily,
-    color: theme.palette.common.white,
-  },
-  itemActionable: {
-    '&:hover': {
-      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+const styles = (theme: any) =>
+  createStyles({
+    categoryHeader: {
+      paddingTop: 16,
+      paddingBottom: 16,
     },
-  },
-  itemActiveItem: {
-    color: '#4fc3f7',
-  },
-  itemPrimary: {
-    color: 'inherit',
-    fontSize: theme.typography.fontSize,
-    '&$textDense': {
+    categoryHeaderPrimary: {
+      color: theme.palette.common.white,
+    },
+    item: {
+      paddingTop: 4,
+      paddingBottom: 4,
+      color: 'rgba(255, 255, 255, 0.7)',
+    },
+    itemCategory: {
+      backgroundColor: '#232f3e',
+      boxShadow: '0 -1px 0 #404854 inset',
+      paddingTop: 16,
+      paddingBottom: 16,
+    },
+    firebase: {
+      fontSize: 24,
+      fontFamily: theme.typography.fontFamily,
+      color: theme.palette.common.white,
+    },
+    itemActionable: {
+      '&:hover': {
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+      },
+    },
+    itemActiveItem: {
+      color: '#4fc3f7',
+    },
+    itemPrimary: {
+      color: 'inherit',
       fontSize: theme.typography.fontSize,
+      '&$textDense': {
+        fontSize: theme.typography.fontSize,
+      },
     },
-  },
-  textDense: {},
-  divider: {
-    marginTop: theme.spacing.unit * 2,
-},
-});
+    textDense: {},
+    divider: {
+      marginTop: theme.spacing.unit * 2,
+    },
+  });
 
 const categories = [
   {
     id: 'Settings',
     children: [
-      { id: 'Djeeta', icon: <PersonIcon/> },
-      { id: 'Characters', icon: <PeopleIcon/> },
-      { id: 'Weapon', icon: <AppsIcon/> },
-      { id: 'Summon', icon: <PublicIcon/> },
-      { id: 'Enemy', icon: <WhatshotIcon/> },
+      { id: 'Djeeta', icon: <PersonIcon /> },
+      { id: 'Characters', icon: <PeopleIcon /> },
+      { id: 'Weapon', icon: <AppsIcon /> },
+      { id: 'Summon', icon: <PublicIcon /> },
+      { id: 'Enemy', icon: <WhatshotIcon /> },
     ],
   },
   {
     id: 'Battle',
-    children: [
-      { id: 'Battle', icon: <PlayarrowIcon/> },
-    ],
+    children: [{ id: 'Battle', icon: <PlayarrowIcon /> }],
   },
   {
     id: 'Config',
-    children: [
-      { id: 'config', icon: <SettingsIcon/> },
-      { id: 'help', icon: <QuestionAnswerIcon/> },
-    ],
+    children: [{ id: 'config', icon: <SettingsIcon /> }, { id: 'help', icon: <QuestionAnswerIcon /> }],
   },
 ];
 
 export class SidebarComponent extends React.Component<SidebarProps> {
-  public static defaultProps: SidebarProps = 
-    Object.assign({}, initialState, sidebarActions);
+  public static defaultProps: SidebarProps = Object.assign({}, initialState, sidebarActions);
 
   private categories = [
-      {
-        id: 'Settings',
-        children: [
-          { id: 'Djeeta', icon: <PersonIcon/> },
-          { id: 'Characters', icon: <PeopleIcon/> },
-          { id: 'Weapon', icon: <AppsIcon/> },
-          { id: 'Summon', icon: <PublicIcon/> },
-          { id: 'Enemy', icon: <WhatshotIcon/> },
-        ],
-      },
-      {
-        id: 'Battle',
-        children: [
-          { id: 'Battle', icon: <PlayarrowIcon/> },
-        ],
-      },
-      {
-        id: 'Config',
-        children: [
-          { id: 'config', icon: <SettingsIcon/> },
-          { id: 'help', icon: <QuestionAnswerIcon/> },
-        ],
-      },
-    ]
+    {
+      id: 'Settings',
+      children: [
+        { id: 'Djeeta', icon: <PersonIcon /> },
+        { id: 'Characters', icon: <PeopleIcon /> },
+        { id: 'Weapon', icon: <AppsIcon /> },
+        { id: 'Summon', icon: <PublicIcon /> },
+        { id: 'Enemy', icon: <WhatshotIcon /> },
+      ],
+    },
+    {
+      id: 'Battle',
+      children: [{ id: 'Battle', icon: <PlayarrowIcon /> }],
+    },
+    {
+      id: 'Config',
+      children: [{ id: 'config', icon: <SettingsIcon /> }, { id: 'help', icon: <QuestionAnswerIcon /> }],
+    },
+  ];
 
   public render() {
     return (
-      <Drawer variant="permanent" >
+      <Drawer variant="permanent">
         <List disablePadding>
-          <ListItem>
-            Battle Simulator
-          </ListItem>
+          <ListItem>Battle Simulator</ListItem>
           {this.categories.map(({ id, children }) => (
             <React.Fragment key={id}>
               <ListItem>
-                <ListItemText>
-                  {id}
-                </ListItemText>
+                <ListItemText>{id}</ListItemText>
               </ListItem>
               {children.map(({ id: childId, icon }) => (
-                <ListItem
-                  button
-                  dense
-                  key={childId}
-                  onClick={(e) => this.props.selectMenu(childId)}
-                >
+                <ListItem button dense key={childId} onClick={e => this.props.selectMenu(childId)}>
                   <ListItemIcon>{icon}</ListItemIcon>
-                  <ListItemText>
-                    {childId}
-                  </ListItemText>
+                  <ListItemText>{childId}</ListItemText>
                 </ListItem>
               ))}
-              <Divider/>
+              <Divider />
             </React.Fragment>
           ))}
         </List>
       </Drawer>
     );
   }
-};
+}
 
 // function SidebarComponent(props: Props) {
 //   const { classes, ...other  } = props;

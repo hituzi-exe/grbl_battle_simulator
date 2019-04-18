@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import {createStyles, MuiThemeProvider, createMuiTheme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, MuiThemeProvider, createMuiTheme, withStyles, WithStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 
 import HogeContainer from '../src/containers/hogeContainer';
 import SidebarContainer from './containers/sidebarContainer';
 // import HeaderContainer from './containers/headerContainer';
-import {HeaderComponent} from './components/HeaderComponent';
+import { HeaderComponent } from './components/HeaderComponent';
 
 let theme = createMuiTheme({
   typography: {
@@ -128,27 +128,27 @@ theme = {
 const drawerWidth = 256;
 
 const styles = createStyles({
-    root: {
-        display: 'flex',
-        minHeight: '100vh',
-      },
-      drawer: {
-        [theme.breakpoints.up('sm')]: {
-          width: drawerWidth,
-          flexShrink: 0,
-        },
-      },
-      appContent: {
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-      },
-      mainContent: {
-        flex: 1,
-        padding: '48px 36px 0',
-        background: '#eaeff1',
-      },
-  });
+  root: {
+    display: 'flex',
+    minHeight: '100vh',
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appContent: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  mainContent: {
+    flex: 1,
+    padding: '48px 36px 0',
+    background: '#eaeff1',
+  },
+});
 
 export interface Props extends WithStyles<typeof styles> {}
 
@@ -164,9 +164,7 @@ class App extends React.Component<Props> {
           </nav>
           <div className={classes.appContent}>
             <HeaderComponent />
-            <main className={classes.mainContent}>
-              {/* <Content /> */}
-            </main>
+            <main className={classes.mainContent}>{/* <Content /> */}</main>
           </div>
         </div>
       </MuiThemeProvider>

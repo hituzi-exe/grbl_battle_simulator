@@ -16,35 +16,36 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import RefreshIcon from '@material-ui/icons/Refresh';
 
-const styles = (theme: any) => createStyles({
+const styles = (theme: any) =>
+  createStyles({
     paper: {
-        maxWidth: 936,
-        margin: 'auto',
-        overflow: 'hidden',
-      },
-      searchBar: {
-        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-      },
-      searchInput: {
-        fontSize: theme.typography.fontSize,
-      },
-      block: {
-        display: 'block',
-      },
-      addUser: {
-        marginRight: theme.spacing.unit,
-      },
-      contentWrapper: {
-        margin: '40px 16px',
+      maxWidth: 936,
+      margin: 'auto',
+      overflow: 'hidden',
     },
-});
+    searchBar: {
+      borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+    },
+    searchInput: {
+      fontSize: theme.typography.fontSize,
+    },
+    block: {
+      display: 'block',
+    },
+    addUser: {
+      marginRight: theme.spacing.unit,
+    },
+    contentWrapper: {
+      margin: '40px 16px',
+    },
+  });
 
 export interface Props extends WithStyles<typeof styles> {}
 
 function Content(props: Props) {
-    const { classes } = props;
+  const { classes } = props;
 
-    return (
+  return (
     <Paper className={classes.paper}>
       <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
         <Toolbar>
@@ -81,11 +82,11 @@ function Content(props: Props) {
         </Typography>
       </div>
     </Paper>
-    );
-};
+  );
+}
 
 Content.propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 } as any;
-  
+
 export default withStyles(styles)(Content);

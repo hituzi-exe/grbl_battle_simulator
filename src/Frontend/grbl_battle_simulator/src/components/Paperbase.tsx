@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {createStyles, MuiThemeProvider, createMuiTheme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, MuiThemeProvider, createMuiTheme, withStyles, WithStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Sidebar from './Sidebar';
@@ -126,59 +126,57 @@ theme = {
 const drawerWidth = 256;
 
 const styles = createStyles({
-    root: {
-        display: 'flex',
-        minHeight: '100vh',
-      },
-      drawer: {
-        [theme.breakpoints.up('sm')]: {
-          width: drawerWidth,
-          flexShrink: 0,
-        },
-      },
-      appContent: {
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-      },
-      mainContent: {
-        flex: 1,
-        padding: '48px 36px 0',
-        background: '#eaeff1',
-      },
-  });
+  root: {
+    display: 'flex',
+    minHeight: '100vh',
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appContent: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  mainContent: {
+    flex: 1,
+    padding: '48px 36px 0',
+    background: '#eaeff1',
+  },
+});
 
 export interface Props extends WithStyles<typeof styles> {}
 
 function Paperbase(props: Props) {
-    const { classes } = props;
-    return (
-      <MuiThemeProvider theme={theme}>
-        <div className={classes.root}>
-          <CssBaseline />
-          <nav className={classes.drawer}>
-            <Hidden smUp implementation="js">
-              <Sidebar
-                PaperProps={{ style: { width: drawerWidth } }}
-                variant="temporary"
-              />
-            </Hidden>
-            <Hidden xsDown implementation="css">
-              <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
-            </Hidden>
-          </nav>
-          <div className={classes.appContent}>
-            <Header onDrawerToggle={
-              () => {mobileOpen: true}
-            } />
-            <main className={classes.mainContent}>
-              <Content />
-            </main>
-          </div>
+  const { classes } = props;
+  return (
+    <MuiThemeProvider theme={theme}>
+      <div className={classes.root}>
+        <CssBaseline />
+        <nav className={classes.drawer}>
+          <Hidden smUp implementation="js">
+            <Sidebar PaperProps={{ style: { width: drawerWidth } }} variant="temporary" />
+          </Hidden>
+          <Hidden xsDown implementation="css">
+            <Sidebar PaperProps={{ style: { width: drawerWidth } }} />
+          </Hidden>
+        </nav>
+        <div className={classes.appContent}>
+          <Header
+            onDrawerToggle={() => {
+              mobileOpen: true;
+            }}
+          />
+          <main className={classes.mainContent}>
+            <Content />
+          </main>
         </div>
-      </MuiThemeProvider>
-    );
-
+      </div>
+    </MuiThemeProvider>
+  );
 }
 
 Paperbase.propTypes = {

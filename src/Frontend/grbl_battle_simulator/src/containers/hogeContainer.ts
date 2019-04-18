@@ -13,7 +13,7 @@ export interface HogeActions {
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     updateName: (v: string) => dispatch(hogeActions.updateName(v)),
-    updateEmail: (v: string) => dispatch(hogeActions.updateEmail(v))
+    updateEmail: (v: string) => dispatch(hogeActions.updateEmail(v)),
   };
 }
 
@@ -21,4 +21,7 @@ function mapStateToProps(appState: AppState) {
   return Object.assign({}, appState.hoge);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HogeComponent);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HogeComponent);
