@@ -20,7 +20,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
 }
 
 function mapStateToProps(appState: AppState) {
-  return Object.assign({}, appState.header, appState.sidebar);
+  return Object.assign({}, appState.header);
 }
 
 export default withStyles(styles)(

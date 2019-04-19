@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { SidebarState } from '../states/sidebarState';
-
 import { HeaderState } from '../states/headerState';
 import { HeaderActions } from '../containers/headerContainer';
 
@@ -17,7 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 interface OwnProps {}
 
-type HeaderProps = OwnProps & HeaderState & SidebarState & HeaderActions;
+type HeaderProps = OwnProps & HeaderState & HeaderActions;
 
 interface Props extends WithStyles<typeof styles> {}
 
@@ -36,17 +34,15 @@ export const styles = () =>
   });
 
 export const HeaderComponent: React.SFC<any> = (props: HeaderProps & Props) => {
-  const { classes, isLogin, active, ...other } = props;
+  const { classes, isLogin, ...other } = props;
 
   return (
     <AppBar position="static">
       <Toolbar>
-        {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+        <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
           <MenuIcon />
-        </IconButton> */}
-        <Typography variant="h6" color="inherit" className={classes.grow}>
-          {active}
-        </Typography>
+        </IconButton>
+        <Typography variant="h6" color="inherit" className={classes.grow} />
         {isLogin && (
           <Button color="inherit" onClick={e => props.logout()}>
             Logout
