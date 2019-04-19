@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { BrowserRouter as Router } from 'react-router-dom';
 import { createStyles, MuiThemeProvider, createMuiTheme, withStyles, WithStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
@@ -157,20 +158,22 @@ class App extends React.Component<Props> {
     const { classes } = this.props;
 
     return (
-      <MuiThemeProvider theme={theme}>
-        <div className={classes.root}>
-          <CssBaseline />
-          <nav className={classes.drawer}>
-            <SidebarContainer PaperProps={{ style: { width: drawerWidth } }} />
-          </nav>
-          <div className={classes.appContent}>
-            <HeaderContainer />
-            <main className={classes.mainContent}>
-              <ContentContainer />
-            </main>
+      <Router>
+        <MuiThemeProvider theme={theme}>
+          <div className={classes.root}>
+            <CssBaseline />
+            <nav className={classes.drawer}>
+              <SidebarContainer PaperProps={{ style: { width: drawerWidth } }} />
+            </nav>
+            <div className={classes.appContent}>
+              <HeaderContainer />
+              <main className={classes.mainContent}>
+                <ContentContainer />
+              </main>
+            </div>
           </div>
-        </div>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+      </Router>
     );
   }
 }

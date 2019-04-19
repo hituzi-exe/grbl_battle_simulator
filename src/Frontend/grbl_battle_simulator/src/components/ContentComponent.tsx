@@ -1,6 +1,9 @@
 import * as React from 'react';
 
+import { Route } from 'react-router-dom';
 import { SidebarState } from '../states/sidebarState';
+
+import { Summary } from './contents/Summary';
 
 import { Djeeta } from './contents/Djeeta';
 import { Characters } from './contents/Characters';
@@ -17,29 +20,20 @@ interface OwnProps {}
 
 type ContentProps = OwnProps & SidebarState;
 
-const contents = (active: string) => {
-  switch (active) {
-    case 'Djeeta':
-      return <Djeeta />;
-    case 'Characters':
-      return <Characters />;
-    case 'Weapon':
-      return <Weapon />;
-    case 'Summon':
-      return <Summon />;
-    case 'Enemy':
-      return <Enemy />;
-    case 'Battle':
-      return <Battle />;
-    case 'Config':
-      return <Config />;
-    case 'Help':
-      return <Help />;
-  }
-};
-
 export const ContentComponent: React.SFC<any> = (props: ContentProps) => {
   const { active } = props;
 
-  return <div> {contents(active)}</div>;
+  return (
+    <div>
+      <Route exact path="/" component={Summary} />
+      <Route path="/Djeeta" component={Djeeta} />
+      <Route path="/Characters" component={Characters} />
+      <Route path="/Weapon" component={Weapon} />
+      <Route path="/Summon" component={Summon} />
+      <Route path="/Enemy" component={Enemy} />
+      <Route path="/Battle" component={Battle} />
+      <Route path="/Config" component={Config} />
+      <Route path="/Help" component={Help} />
+    </div>
+  );
 };

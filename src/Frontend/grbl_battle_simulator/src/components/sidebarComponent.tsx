@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
 import { SidebarState } from '../states/sidebarState';
@@ -116,27 +117,29 @@ export const SidebarComponent: React.SFC<any> = (props: SidebarProps & Props) =>
               </ListItemText>
             </ListItem>
             {children.map(({ id: childId, icon }) => (
-              <ListItem
-                button
-                dense
-                key={childId}
-                onClick={e => other.selectMenu(childId)}
-                className={classNames(
-                  classes.item,
-                  classes.itemActionable,
-                  active === childId && classes.itemActiveItem
-                )}
-              >
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.itemPrimary,
-                    textDense: classes.textDense,
-                  }}
+              <Link to={'./' + childId} style={{ textDecoration: 'none' }}>
+                <ListItem
+                  button
+                  dense
+                  key={childId}
+                  onClick={e => other.selectMenu(childId)}
+                  className={classNames(
+                    classes.item,
+                    classes.itemActionable,
+                    active === childId && classes.itemActiveItem
+                  )}
                 >
-                  {childId}
-                </ListItemText>
-              </ListItem>
+                  <ListItemIcon>{icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.itemPrimary,
+                      textDense: classes.textDense,
+                    }}
+                  >
+                    {childId}
+                  </ListItemText>
+                </ListItem>
+              </Link>
             ))}
             <Divider className={classes.divider} />
           </React.Fragment>
