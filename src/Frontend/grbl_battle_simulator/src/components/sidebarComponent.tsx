@@ -91,7 +91,7 @@ const categories = [
   },
   {
     id: 'Config',
-    children: [{ id: 'config', icon: <SettingsIcon /> }, { id: 'help', icon: <QuestionAnswerIcon /> }],
+    children: [{ id: 'Config', icon: <SettingsIcon /> }, { id: 'Help', icon: <QuestionAnswerIcon /> }],
   },
 ];
 
