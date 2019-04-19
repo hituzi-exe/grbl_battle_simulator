@@ -6,7 +6,7 @@ interface OwnProps {}
 
 // type EnemyProps = OwnProps & HogeState & HogeActions;
 
-// export const Battle: React.SFC<any> = (props: EnemyProps) => {
-export const Battle: React.SFC<any> = (props: any) => {
-  return <div>Battle</div>;
+// export const Enemy: React.SFC<any> = (props: EnemyProps) => {
+export const Enemy: React.SFC<any> = (props: any) => {
+  return <div>Enemy</div>;
 };

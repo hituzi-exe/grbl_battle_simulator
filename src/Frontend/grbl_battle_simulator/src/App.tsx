@@ -7,6 +7,7 @@ import Hidden from '@material-ui/core/Hidden';
 import HogeContainer from '../src/containers/hogeContainer';
 import SidebarContainer from './containers/sidebarContainer';
 import HeaderContainer from './containers/headerContainer';
+import ContentContainer from './containers/contentContainer';
 
 let theme = createMuiTheme({
   typography: {
@@ -144,7 +145,7 @@ const styles = createStyles({
   },
   mainContent: {
     flex: 1,
-    padding: '48px 36px 0',
+    padding: '24px 24px 0',
     background: '#eaeff1',
   },
 });
@@ -164,7 +165,9 @@ class App extends React.Component<Props> {
           </nav>
           <div className={classes.appContent}>
             <HeaderContainer />
-            <main className={classes.mainContent}>{/* <Content /> */}</main>
+            <main className={classes.mainContent}>
+              <ContentContainer />
+            </main>
           </div>
         </div>
       </MuiThemeProvider>

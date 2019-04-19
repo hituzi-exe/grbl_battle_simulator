@@ -6,7 +6,7 @@ interface OwnProps {}
 
 // type HogeProps = OwnProps & HogeState & HogeActions;
 
-// export const Summon: React.SFC<any> = (props: HogeProps) => {
-export const Summon: React.SFC<any> = (props: any) => {
-  return <div>Summon</div>;
+// export const Battle: React.SFC<any> = (props: HogeProps) => {
+export const Battle: React.SFC<any> = (props: any) => {
+  return <div>Battle</div>;
 };
