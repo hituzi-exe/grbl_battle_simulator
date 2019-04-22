@@ -3,6 +3,7 @@ import * as React from 'react';
 // import { HogeActions } from '../../containers/hogeContainer';
 //import { CurrentJob } from './CurrentJob';
 import CurrentJob from '../../../containers/Djeeta/currentJobContainer';
+import Ability from '../../../containers/Djeeta/abilityContainer';
 
 interface OwnProps {}
 
@@ -13,6 +14,7 @@ export const Djeeta: React.SFC<any> = (props: any) => {
   return (
     <div>
       <CurrentJob />
+      <Ability />
     </div>
   );
 };
