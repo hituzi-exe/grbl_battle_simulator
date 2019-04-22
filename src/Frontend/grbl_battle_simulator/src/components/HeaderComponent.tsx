@@ -17,7 +17,7 @@ interface OwnProps {}
 
 type HeaderProps = OwnProps & HeaderState & HeaderActions;
 
-interface Props extends WithStyles<typeof styles> {}
+interface StylesProps extends WithStyles<typeof styles> {}
 
 export const styles = () =>
   createStyles({
@@ -33,7 +33,7 @@ export const styles = () =>
     },
   });
 
-export const HeaderComponent: React.SFC<any> = (props: HeaderProps & Props) => {
+export const HeaderComponent: React.SFC<any> = (props: HeaderProps & StylesProps) => {
   const { classes, isLogin, ...other } = props;
 
   return (

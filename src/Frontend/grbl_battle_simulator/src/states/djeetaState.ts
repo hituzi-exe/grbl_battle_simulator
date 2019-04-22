@@ -15,6 +15,6 @@ export const djeetaReducer = reducerWithInitialState(initialState)
   .case(currentJobAction.changeRank, (state, rank) => {
     return Object.assign({}, state, { rank });
   })
-  .case(currentJobAction.changeJob, (state, job) => {
-    return Object.assign({}, state, { job });
+  .case(currentJobAction.changeJob, (state, currentJob) => {
+    return Object.assign({}, state, { currentJob });
   });

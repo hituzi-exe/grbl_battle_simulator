@@ -12,7 +12,6 @@ interface OwnProps {}
 export const Djeeta: React.SFC<any> = (props: any) => {
   return (
     <div>
-      Djeeta
       <CurrentJob />
     </div>
   );
