@@ -23,13 +23,9 @@ function mapStateToProps(appState: AppState) {
   return Object.assign({}, appState.djeeta);
 }
 
-// export default withStyles(styles)(
-//   connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-//   )(CurrentJob)
-// );
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CurrentJob);
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CurrentJob)
+);
