@@ -1,7 +1,8 @@
 import * as React from 'react';
 // import { HogeState } from '../../states/hogeState';
 // import { HogeActions } from '../../containers/hogeContainer';
-import { CurrentJob } from './CurrentJob';
+//import { CurrentJob } from './CurrentJob';
+import CurrentJob from '../../../containers/Djeeta/currentJobContainer';
 
 interface OwnProps {}
 

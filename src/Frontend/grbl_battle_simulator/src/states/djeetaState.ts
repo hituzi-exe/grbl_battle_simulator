@@ -1,5 +1,5 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
-import { djeetaAction } from '../actions/djeetaAction';
+import { currentJobAction } from '../actions/Djeeta/currentJobAction';
 
 export interface DjeetaState {
   rank: number;
@@ -12,9 +12,9 @@ export const initialState: DjeetaState = {
 };
 
 export const djeetaReducer = reducerWithInitialState(initialState)
-  .case(djeetaAction.changeRank, (state, rank) => {
+  .case(currentJobAction.changeRank, (state, rank) => {
     return Object.assign({}, state, { rank });
   })
-  .case(djeetaAction.changeJob, (state, job) => {
+  .case(currentJobAction.changeJob, (state, job) => {
     return Object.assign({}, state, { job });
   });

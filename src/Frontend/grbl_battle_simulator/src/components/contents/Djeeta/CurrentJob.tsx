@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DjeetaState } from '../../../states/djeetaState';
-import { CurrentJobActions } from '../../../containers/djeeta/currentJobContainer';
+import { CurrentJobActions } from '../../../containers/Djeeta/currentJobContainer';
 
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
@@ -23,5 +23,12 @@ export const styles = () =>
   });
 
 export const CurrentJob: React.SFC<any> = (props: CurrentJobProps) => {
-  return <div>CurrentJob</div>;
+  return (
+    <div>
+      CurrentJob
+      <div className="field">
+        <input type="number" placeholder="rank" value={props.rank} onChange={e => props.changeRank(e.target.value)} />
+      </div>
+    </div>
+  );
 };
