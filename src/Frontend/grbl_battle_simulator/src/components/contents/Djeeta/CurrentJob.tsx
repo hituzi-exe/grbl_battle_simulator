@@ -69,7 +69,7 @@ export const CurrentJob: React.SFC<any> = (props: CurrentJobProps & StylesProps)
             <Typography color="inherit">{props.currentJob}</Typography>
           </Grid>
           <Grid item>
-            <Typography color="inherit">LV20</Typography>
+            <Typography color="inherit">LV{props.currentJobLv}</Typography>
           </Grid>
         </Grid>
 
@@ -81,10 +81,10 @@ export const CurrentJob: React.SFC<any> = (props: CurrentJobProps & StylesProps)
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={16}>
               <Grid item xs>
-                <JobSutatus label="得意武器" value="剣,斧" />
-                <JobSutatus label="タイプ" value="特殊" />
-                <JobSutatus label="HP" value="999" />
-                <JobSutatus label="攻撃力" value="9999" />
+                <JobSutatus label="得意武器" value={props.forteWeapon1 + ',' + props.forteWeapon2} />
+                <JobSutatus label="タイプ" value={props.jobType} />
+                <JobSutatus label="HP" value={props.HP} />
+                <JobSutatus label="攻撃力" value={props.attack} />
               </Grid>
             </Grid>
           </Grid>
