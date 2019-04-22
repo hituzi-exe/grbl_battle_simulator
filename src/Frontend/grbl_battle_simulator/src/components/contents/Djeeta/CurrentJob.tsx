@@ -27,6 +27,7 @@ export const styles = (theme: Theme) =>
       maxWidth: 360,
       maxHeight: 360,
       padding: theme.spacing.unit * 2,
+      marginBottom: 15,
     },
     textField: {
       marginLeft: theme.spacing.unit,
@@ -91,7 +92,7 @@ export const CurrentJob: React.SFC<any> = (props: CurrentJobProps & StylesProps)
 
       <Grid container direction="row" justify="flex-end" spacing={16}>
         <Grid item>
-          <Button size="small" color="inherit" onClick={e => props.changeJob('')}>
+          <Button size="small" variant="outlined" color="primary" onClick={e => props.changeJob('')}>
             ジョブ選択
             <ChevronRight />
           </Button>
