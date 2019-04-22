@@ -5,7 +5,7 @@ import { SidebarState } from '../states/sidebarState';
 
 import { Summary } from './contents/Summary';
 
-import { Djeeta } from './contents/Djeeta';
+import { Djeeta } from './contents/Djeeta/Djeeta';
 import { Characters } from './contents/Characters';
 import { Weapon } from './contents/Weapon';
 import { Summon } from './contents/Summon';
