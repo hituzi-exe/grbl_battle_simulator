@@ -46,57 +46,55 @@ export const CurrentJob: React.SFC<any> = (props: CurrentJobProps & StylesProps)
 
   return (
     <Paper className={classes.paper}>
-      <Grid item xs container direction="column" spacing={16}>
-        <Grid container spacing={8} alignItems="center">
-          <Grid item>
-            <Typography color="textSecondary">Rank</Typography>
-          </Grid>
-
-          <Grid item xs>
-            <TextField
-              id="standard-number"
-              value={props.rank}
-              onChange={e => props.changeRank(e.target.value)}
-              type="number"
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              margin="none"
-            />
-          </Grid>
-          <Grid item>
-            <Typography color="inherit">{props.currentJob}</Typography>
-          </Grid>
-          <Grid item>
-            <Typography color="inherit">LV{props.currentJobLv}</Typography>
-          </Grid>
+      <Grid container spacing={8} alignItems="center">
+        <Grid item>
+          <Typography color="textSecondary">Rank</Typography>
         </Grid>
 
-        <Grid container direction="row" spacing={16} alignItems="center">
-          <Grid item xs>
-            <img className={classes.img} alt="jobImg" src="/static/images/grid/complex.jpg" />
-          </Grid>
+        <Grid item>
+          <TextField
+            id="standard-number"
+            value={props.rank}
+            onChange={e => props.changeRank(e.target.value)}
+            type="number"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            margin="none"
+          />
+        </Grid>
+        <Grid item>
+          <Typography color="inherit">{props.currentJob}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography color="inherit">LV{props.currentJobLv}</Typography>
+        </Grid>
+      </Grid>
 
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={16}>
-              <Grid item xs>
-                <JobSutatus label="得意武器" value={props.forteWeapon1 + ',' + props.forteWeapon2} />
-                <JobSutatus label="タイプ" value={props.jobType} />
-                <JobSutatus label="HP" value={props.HP} />
-                <JobSutatus label="攻撃力" value={props.attack} />
-              </Grid>
+      <Grid container direction="row" spacing={16} alignItems="center">
+        <Grid item xs>
+          <img className={classes.img} alt="jobImg" src="/static/images/grid/complex.jpg" />
+        </Grid>
+
+        <Grid item xs={6} sm container>
+          <Grid item xs container direction="column" spacing={16}>
+            <Grid item xs>
+              <JobSutatus label="得意武器" value={props.forteWeapon1 + ',' + props.forteWeapon2} />
+              <JobSutatus label="タイプ" value={props.jobType} />
+              <JobSutatus label="HP" value={props.HP} />
+              <JobSutatus label="攻撃力" value={props.attack} />
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
 
-        <Grid container direction="row" justify="flex-end" spacing={16}>
-          <Grid item>
-            <Button size="small" color="inherit" onClick={e => props.changeJob('')}>
-              ジョブ選択
-              <ChevronRight />
-            </Button>
-          </Grid>
+      <Grid container direction="row" justify="flex-end" spacing={16}>
+        <Grid item>
+          <Button size="small" color="inherit" onClick={e => props.changeJob('')}>
+            ジョブ選択
+            <ChevronRight />
+          </Button>
         </Grid>
       </Grid>
     </Paper>
