@@ -16,7 +16,7 @@ interface OwnProps {}
 export const Djeeta: React.SFC<any> = (props: any) => {
   return (
     <div>
-      <Grid container spacing={16} alignItems="flex-start" justify="space-around">
+      <Grid container spacing={16}>
         <Grid item>
           <CurrentJob />
           <CurrentAbility />
