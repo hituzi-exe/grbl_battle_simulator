@@ -92,6 +92,7 @@ export const CurrentJob: React.SFC<any> = (props: CurrentJobProps & StylesProps)
 
       <Grid container direction="row" justify="flex-end" spacing={16}>
         <Grid item>
+          {/* //TODO onClickへは仮の割り当て。ジョブ一覧画面作成後に変更すること。 */}
           <Button size="small" variant="outlined" color="primary" onClick={e => props.changeJob('')}>
             ジョブ選択
             <ChevronRight />
