@@ -2,7 +2,7 @@ import { Action } from 'typescript-fsa';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from '../../store';
-import { abilityAction } from '../../actions/Djeeta/abilityAction';
+import { currentAbilityAction } from '../../actions/Djeeta/currentAbilityAction';
 import { styles, Ability } from '../../components/contents/Djeeta/Ability';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -16,10 +16,10 @@ export interface AbilityActions {
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
-    changeFreeAbility1: (v: string) => dispatch(abilityAction.changeFreeAbility1(v)),
-    changeFreeAbility2: (v: string) => dispatch(abilityAction.changeFreeAbility2(v)),
-    changeFreeAbility3: (v: string) => dispatch(abilityAction.changeFreeAbility3(v)),
-    changeExAbility: (v: string) => dispatch(abilityAction.changeExAbility(v)),
+    changeFreeAbility1: (v: string) => dispatch(currentAbilityAction.changeFreeAbility1(v)),
+    changeFreeAbility2: (v: string) => dispatch(currentAbilityAction.changeFreeAbility2(v)),
+    changeFreeAbility3: (v: string) => dispatch(currentAbilityAction.changeFreeAbility3(v)),
+    changeExAbility: (v: string) => dispatch(currentAbilityAction.changeExAbility(v)),
   };
 }
 
