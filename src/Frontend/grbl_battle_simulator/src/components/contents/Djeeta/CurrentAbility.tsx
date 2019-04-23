@@ -80,7 +80,7 @@ export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps & Styl
   return (
     <Paper className={classes.paper}>
       <Typography color="textPrimary" gutterBottom className={classes.title}>
-        Ability
+        アビリティ
       </Typography>
       <Divider light />
       {abilityList.map(({ icon, name, secondary }) => (
@@ -88,7 +88,7 @@ export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps & Styl
       ))}
 
       <Typography color="textPrimary" gutterBottom className={classes.title}>
-        FreeAbility
+        Freeアビリティ
       </Typography>
       <Divider light />
       {/* //TODO onClickへ仮の割り当て。アビリティ一覧画面作成後に変更すること。 */}
