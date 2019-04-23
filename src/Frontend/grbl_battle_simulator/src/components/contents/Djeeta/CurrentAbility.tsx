@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DjeetaState } from '../../../states/djeetaState';
-import { AbilityActions } from '../../../containers/Djeeta/abilityContainer';
+import { CurrentAbilityActions } from '../../../containers/Djeeta/currentAbilityContainer';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
@@ -18,7 +18,7 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
-type AbilityProps = OwnProps & DjeetaState & AbilityActions;
+type CurrentAbilityProps = OwnProps & DjeetaState & CurrentAbilityActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -74,7 +74,7 @@ const exAbilityList = [
   },
 ];
 
-export const Ability: React.SFC<any> = (props: AbilityProps & StylesProps) => {
+export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps & StylesProps) => {
   const { classes } = props;
 
   return (
@@ -103,7 +103,7 @@ interface AbilityItemProps {
   onChange(v: string): void;
 }
 
-const AbilityItem: React.SFC<any> = (props: AbilityItemProps & AbilityActions) => {
+const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityActions) => {
   const { icon, name, secondary, ...other } = props;
   return (
     <React.Fragment key={name}>
@@ -114,7 +114,7 @@ const AbilityItem: React.SFC<any> = (props: AbilityItemProps & AbilityActions) =
   );
 };
 
-const ExAbilityItem: React.SFC<any> = (props: AbilityItemProps & AbilityActions) => {
+const ExAbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityActions) => {
   const { icon, name, secondary, onChange, ...other } = props;
   return (
     <React.Fragment key={name}>
