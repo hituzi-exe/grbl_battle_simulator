@@ -93,6 +93,7 @@ export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps & Styl
       <Divider light />
       {/* //TODO onClickへ仮の割り当て。アビリティ一覧画面作成後に変更すること。 */}
       <ExAbilityItem name={props.exAbility} changingAbility={props.changingAbility} onClick={props.changeExAbility} />
+      <LimitBounusItem lbclass={props.lbclass} />
     </Paper>
   );
 };
@@ -117,16 +118,32 @@ const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityAct
 };
 
 const ExAbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityActions) => {
-  const { icon, name, secondary, changingAbility, onClick: onChange, ...other } = props;
+  const { icon, name, secondary, changingAbility, onClick, ...other } = props;
   return (
     <React.Fragment key={name}>
       <ListItem button>
         <ListItemText primary={name} secondary={secondary} />
-        <Button
-          variant={changingAbility === '' ? 'outlined' : 'contained'}
-          color="primary"
-          onClick={() => onChange('')}
-        >
+        <Button variant={changingAbility === '' ? 'outlined' : 'contained'} color="primary" onClick={() => onClick('')}>
+          <ChevronRight />
+        </Button>
+      </ListItem>
+    </React.Fragment>
+  );
+};
+
+interface LimitBounusItemProps {
+  lbclass: number;
+  onClick(v: string): void;
+}
+
+const LimitBounusItem: React.SFC<any> = (props: LimitBounusItemProps & CurrentAbilityActions) => {
+  const { lbclass, onClick, ...other } = props;
+  return (
+    <React.Fragment key={name}>
+      <ListItem button>
+        <ListItemText primary={'Limit Bounus Class' + lbclass} />
+        {/* //TODO onClickは仮置きのイベント。あとで置き換える。 */}
+        <Button variant="outlined" color="primary" onClick={() => alert(lbclass)}>
           <ChevronRight />
         </Button>
       </ListItem>

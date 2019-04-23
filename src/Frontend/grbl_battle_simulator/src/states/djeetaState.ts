@@ -17,6 +17,7 @@ export interface DjeetaState {
   freeAbility1: string;
   freeAbility2: string;
   freeAbility3: string;
+  lbclass: number;
 }
 
 export const initialState: DjeetaState = {
@@ -33,6 +34,7 @@ export const initialState: DjeetaState = {
   freeAbility1: 'hoge1',
   freeAbility2: 'hoge2',
   freeAbility3: 'hoge3',
+  lbclass: 10,
 };
 
 export const djeetaReducer = reducerWithInitialState(initialState)
