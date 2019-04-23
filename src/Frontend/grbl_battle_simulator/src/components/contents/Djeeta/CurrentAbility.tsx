@@ -88,11 +88,11 @@ export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps & Styl
       ))}
 
       <Typography color="textPrimary" gutterBottom className={classes.title}>
-        Freeアビリティ
+        Exアビリティ
       </Typography>
       <Divider light />
       {/* //TODO onClickへ仮の割り当て。アビリティ一覧画面作成後に変更すること。 */}
-      <ExAbilityItem name={props.exAbility} onClick={props.changeExAbility} />
+      <ExAbilityItem name={props.exAbility} changingAbility={props.changingAbility} onClick={props.changeExAbility} />
     </Paper>
   );
 };
@@ -101,6 +101,7 @@ interface AbilityItemProps {
   icon: string;
   name: string;
   secondary: string;
+  changingAbility: string;
   onClick(v: string): void;
 }
 
@@ -116,12 +117,16 @@ const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityAct
 };
 
 const ExAbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityActions) => {
-  const { icon, name, secondary, onClick: onChange, ...other } = props;
+  const { icon, name, secondary, changingAbility, onClick: onChange, ...other } = props;
   return (
     <React.Fragment key={name}>
       <ListItem button>
         <ListItemText primary={name} secondary={secondary} />
-        <Button variant="outlined" color="primary" onClick={() => onChange('hoge2')}>
+        <Button
+          variant={changingAbility === '' ? 'outlined' : 'contained'}
+          color="primary"
+          onClick={() => onChange('')}
+        >
           <ChevronRight />
         </Button>
       </ListItem>
