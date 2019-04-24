@@ -5,16 +5,13 @@ import { CurrentAbilityActions } from '../../../containers/Djeeta/currentAbility
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import ChevronRight from '@material-ui/icons/ChevronRight';
+import tmpIcon from '../../../images/tmpIcon.png';
 
 interface OwnProps {}
 
@@ -49,7 +46,7 @@ const abilityList = [
   {
     icon: 'https://example.com/api/icon/1.jpg',
     name: 'ability1',
-    secondary: 'hoge',
+    secondary: 'ここにアビリティの詳しい説明文をだらだらと表示させる予定',
   },
   {
     icon: 'https://example.com/api/icon/2.jpg',
@@ -101,6 +98,7 @@ const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityAct
   return (
     <React.Fragment key={name}>
       <ListItem button>
+        <img src={tmpIcon} alt="icon" />
         <ListItemText primary={name} secondary={secondary} />
       </ListItem>
     </React.Fragment>
