@@ -26,9 +26,7 @@ export const styles = (theme: Theme) =>
     root: {
       flexGrow: 0,
     },
-    paper: {
-      maxWidth: 360,
-    },
+    paper: {},
     title: {
       paddingTop: theme.spacing.unit * 2,
       paddingLeft: theme.spacing.unit * 2,

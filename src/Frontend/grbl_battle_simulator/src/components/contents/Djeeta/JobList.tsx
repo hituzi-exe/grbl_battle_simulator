@@ -26,9 +26,7 @@ export const styles = (theme: Theme) =>
     root: {
       flexGrow: 0,
     },
-    paper: {
-      maxWidth: 360,
-    },
+    paper: {},
     title: {
       paddingTop: theme.spacing.unit * 2,
       paddingLeft: theme.spacing.unit * 2,
@@ -81,7 +79,7 @@ export const JobList: React.SFC<any> = (props: JobListProps & StylesProps) => {
       <List subheader={<ListSubheader>ジョブ一覧</ListSubheader>}>
         <Divider light />
         {abilityList.map(({ id, icon, name, secondary }) => (
-          <AbilityItem id={id} icon={icon} name={name} secondary={secondary} selectAbility={props.selectJob} />
+          <AbilityItem id={id} icon={icon} name={name} secondary={secondary} selectJob={props.selectJob} />
         ))}
       </List>
     </Paper>

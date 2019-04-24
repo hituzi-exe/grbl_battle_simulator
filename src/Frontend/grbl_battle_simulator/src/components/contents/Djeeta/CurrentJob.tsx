@@ -25,10 +25,7 @@ export const styles = (theme: Theme) =>
       flexGrow: 0,
     },
     paper: {
-      maxWidth: 360,
-      maxHeight: 360,
       padding: theme.spacing.unit * 2,
-      marginBottom: 15,
     },
     textField: {
       marginLeft: theme.spacing.unit,
