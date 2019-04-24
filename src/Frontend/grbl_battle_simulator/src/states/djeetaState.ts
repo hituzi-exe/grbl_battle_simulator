@@ -12,7 +12,7 @@ export interface DjeetaState {
   jobType: string;
   HP: number;
   attack: number;
-  changingAbility: string;
+  changingAbility: '' | 'freeAbility1' | 'freeAbility2' | 'freeAbility3' | 'exAbility';
   exAbility: string;
   freeAbility1: string;
   freeAbility2: string;
@@ -45,23 +45,18 @@ export const djeetaReducer = reducerWithInitialState(initialState)
     return Object.assign({}, state, { currentJob });
   })
   .case(currentAbilityAction.changeFreeAbility1, (state, freeAbility1) => {
-    //TODO
     return Object.assign({}, state, { changingAbility: 'freeAbility1' });
   })
   .case(currentAbilityAction.changeFreeAbility2, (state, freeAbility2) => {
-    //TODO
     return Object.assign({}, state, { changingAbility: 'freeAbility2' });
   })
   .case(currentAbilityAction.changeFreeAbility3, (state, freeAbility3) => {
-    //TODO
     return Object.assign({}, state, { changingAbility: 'freeAbility3' });
   })
   .case(currentAbilityAction.changeExAbility, (state, exAbility) => {
-    //TODO
     return Object.assign({}, state, { changingAbility: 'exAbility' });
   })
   .case(abilityListAction.selectAbility, (state, id) => {
-    //TODO
     switch (state.changingAbility) {
       case 'exAbility':
         return Object.assign({}, state, { exAbility: id, changingAbility: '' });
