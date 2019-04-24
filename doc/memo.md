@@ -297,10 +297,11 @@ initialState :{ //戦闘画面に移行する前のデータ
             {id:""},
             {id:""}
         ],
-        supportabilitys:[
+        supportAbilitys:[
             {},
             {},
         ],
+        bonus:[],
         limitbonus:[],
     },
     Characters:{
@@ -338,12 +339,16 @@ masterData:{
     DjeetaJobs:{
         fetchStatus:"",
         entities: [
-            {
-                id:"",
+            "1": {
+                id:"1",
                 name:"",
             },
-            {
-                id:"",
+            "2": {
+                id:"2",
+                name:"",
+            },
+            "3": {
+                id:"3",
                 name:"",
             },
         ],
