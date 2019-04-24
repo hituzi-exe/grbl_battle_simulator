@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import CurrentJob from '../../../containers/Djeeta/currentJobContainer';
 import CurrentAbility from '../../../containers/Djeeta/currentAbilityContainer';
 import CurrentExAbility from '../../../containers/Djeeta/currentExAbilityContainer';
+import CurrentLimitBounus from '../../../containers/Djeeta/currentLimitBounusContainer';
 
 import AbilityList from '../../../containers/Djeeta/abilityListContainer';
 import JobList from '../../../containers/Djeeta/jobListContainer';
@@ -31,6 +32,9 @@ export const Djeeta: React.SFC<any> = (props: any) => {
             </Grid>
             <Grid item>
               <CurrentExAbility />
+            </Grid>
+            <Grid item>
+              <CurrentLimitBounus />
             </Grid>
           </Grid>
         </Grid>

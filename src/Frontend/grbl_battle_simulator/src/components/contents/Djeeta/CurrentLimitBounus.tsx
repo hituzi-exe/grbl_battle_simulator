@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DjeetaState } from '../../../states/djeetaState';
-import { CurrentExAbilityActions } from '../../../containers/Djeeta/currentExAbilityContainer';
+import { CurrentLimitBounusActions } from '../../../containers/Djeeta/currentLimitBounusContainer';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
@@ -18,7 +18,7 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
-type CurrentAbilityProps = OwnProps & DjeetaState & CurrentExAbilityActions;
+type CurrentAbilityProps = OwnProps & DjeetaState & CurrentLimitBounusActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -44,64 +44,35 @@ export const styles = (theme: Theme) =>
       maxHeight: '100%',
     },
   });
-//TODO Storeへ移動すること
-const abilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary: 'hoge',
-  },
-  {
-    icon: 'https://example.com/api/icon/2.jpg',
-    name: 'ability2',
-    secondary: 'hoge',
-  },
-  {
-    icon: 'https://example.com/api/icon/3.jpg',
-    name: 'ability3',
-    secondary: 'hoge',
-  },
-];
 
-//TODO Storeへ移動すること
-const exAbilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary: 'hoge',
-  },
-];
-
-export const CurrentExAbility: React.SFC<any> = (props: CurrentAbilityProps & StylesProps) => {
+export const CurrentLimitBounus: React.SFC<any> = (props: CurrentAbilityProps & StylesProps) => {
   const { classes } = props;
 
   return (
     <Paper className={classes.paper}>
       <Typography color="textPrimary" gutterBottom className={classes.title}>
-        Exアビリティ
+        Limit Bounus
       </Typography>
       <Divider light />
       {/* //TODO onClickへ仮の割り当て。アビリティ一覧画面作成後に変更すること。 */}
-      <ExAbilityItem name={props.exAbility} changingAbility={props.changingAbility} onClick={props.changeExAbility} />
+      <LimitBounusItem lbclass={props.lbclass} changeLimitBounus={props.changeLimitBounus} />
     </Paper>
   );
 };
 
-interface AbilityItemProps {
-  icon: string;
-  name: string;
-  secondary: string;
-  changingAbility: string;
+interface LimitBounusItemProps {
+  lbclass: number;
   onClick(v: string): void;
 }
 
-const ExAbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentExAbilityActions) => {
-  const { icon, name, secondary, changingAbility, onClick, ...other } = props;
+const LimitBounusItem: React.SFC<any> = (props: LimitBounusItemProps & CurrentLimitBounusActions) => {
+  const { lbclass, onClick, changeLimitBounus, ...other } = props;
   return (
     <React.Fragment key={name}>
       <ListItem button>
-        <ListItemText primary={name} secondary={secondary} />
-        <Button variant={changingAbility === '' ? 'outlined' : 'contained'} color="primary" onClick={() => onClick('')}>
+        <ListItemText primary={'Limit Bounus Class' + lbclass} />
+        {/* //TODO onClickは仮置きのイベント。あとで置き換える。 */}
+        <Button variant="outlined" color="primary" onClick={() => changeLimitBounus(name)}>
           <ChevronRight />
         </Button>
       </ListItem>
