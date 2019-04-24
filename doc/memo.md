@@ -430,3 +430,51 @@ ui: { //Storeで管理せずにそれぞれのコンポーネントに持たせ�
     BattleView:{},
 }
 ```
+
+```tsx :DjeetaStatusInterface
+interface Weapon {
+  name: '剣' | '短剣' | '槍' | '斧' | '杖' | '銃' | '格闘' | '弓' | '楽器' | '刀';
+}
+interface Ability {
+  id: string;
+  name: string;
+  icon: string;
+  effect: string;
+}
+interface SupportAbility {
+  id: string;
+  name: string;
+  icon: string;
+  effect: string;
+}
+interface LvUpBounus {
+  lv: number;
+  name: string;
+  effect: string;
+}
+interface LimitBounus {
+  class: number;
+  max: number;
+  items: LimitBounusItem[];
+}
+interface LimitBounusItem {
+  id: string;
+  name: string;
+  enable: boolean;
+  effects: LimitBounusEffect[];
+}
+interface LimitBounusEffect {
+  lv: number;
+  effect: string;
+}
+interface Job {
+  id: string;
+  name: string;
+  forteWeapon1: Weapon;
+  forteWeapon2: Weapon;
+  Abilities: Ability[];
+  SupportAbilities: SupportAbility[];
+  LvUpBounus: LvUpBounus[];
+  LimitBounus: LimitBounus;
+}
+```
