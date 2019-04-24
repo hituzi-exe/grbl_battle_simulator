@@ -8,6 +8,9 @@ import CurrentJob from '../../../containers/Djeeta/currentJobContainer';
 import CurrentAbility from '../../../containers/Djeeta/currentAbilityContainer';
 import AbilityList from '../../../containers/Djeeta/abilityListContainer';
 
+import JobList from '../../../containers/Djeeta/jobListContainer';
+//import { JobList } from './JobList';
+
 interface OwnProps {}
 
 // type HogeProps = OwnProps & HogeState & HogeActions;
@@ -25,7 +28,7 @@ export const Djeeta: React.SFC<any> = (props: any) => {
           <AbilityList />
         </Grid>
         <Grid item>
-          <AbilityList />
+          <JobList />
         </Grid>
       </Grid>
     </div>
