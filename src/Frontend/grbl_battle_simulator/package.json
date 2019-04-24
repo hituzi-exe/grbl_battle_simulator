@@ -43,6 +43,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/react-redux": "^7.0.6"
+    "@types/react-redux": "^7.0.6",
+    "react-custom-scrollbars": "^4.2.1"
   }
 }
