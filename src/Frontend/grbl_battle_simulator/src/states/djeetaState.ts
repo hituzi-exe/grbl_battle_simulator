@@ -1,6 +1,7 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { currentJobAction } from '../actions/Djeeta/currentJobAction';
 import { currentAbilityAction } from '../actions/Djeeta/currentAbilityAction';
+import { currentExAbilityAction } from '../actions/Djeeta/currentExAbilityAction';
 import { abilityListAction } from '../actions/Djeeta/abilityListAction';
 
 export interface DjeetaState {
@@ -53,7 +54,7 @@ export const djeetaReducer = reducerWithInitialState(initialState)
   .case(currentAbilityAction.changeFreeAbility3, (state, freeAbility3) => {
     return Object.assign({}, state, { changingAbility: 'freeAbility3' });
   })
-  .case(currentAbilityAction.changeExAbility, (state, exAbility) => {
+  .case(currentExAbilityAction.changeExAbility, (state, exAbility) => {
     return Object.assign({}, state, { changingAbility: 'exAbility' });
   })
   .case(abilityListAction.selectAbility, (state, id) => {

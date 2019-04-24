@@ -11,7 +11,6 @@ export interface CurrentAbilityActions {
   changeFreeAbility1: (v: string) => Action<string>;
   changeFreeAbility2: (v: string) => Action<string>;
   changeFreeAbility3: (v: string) => Action<string>;
-  changeExAbility: (v: string) => Action<string>;
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
@@ -19,7 +18,6 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
     changeFreeAbility1: (v: string) => dispatch(currentAbilityAction.changeFreeAbility1(v)),
     changeFreeAbility2: (v: string) => dispatch(currentAbilityAction.changeFreeAbility2(v)),
     changeFreeAbility3: (v: string) => dispatch(currentAbilityAction.changeFreeAbility3(v)),
-    changeExAbility: (v: string) => dispatch(currentAbilityAction.changeExAbility(v)),
   };
 }
 

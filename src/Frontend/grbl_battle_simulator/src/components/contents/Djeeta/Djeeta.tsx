@@ -6,8 +6,9 @@ import Grid from '@material-ui/core/Grid';
 
 import CurrentJob from '../../../containers/Djeeta/currentJobContainer';
 import CurrentAbility from '../../../containers/Djeeta/currentAbilityContainer';
-import AbilityList from '../../../containers/Djeeta/abilityListContainer';
+import CurrentExAbility from '../../../containers/Djeeta/currentExAbilityContainer';
 
+import AbilityList from '../../../containers/Djeeta/abilityListContainer';
 import JobList from '../../../containers/Djeeta/jobListContainer';
 //import { JobList } from './JobList';
 
@@ -19,16 +20,28 @@ interface OwnProps {}
 export const Djeeta: React.SFC<any> = (props: any) => {
   return (
     <div>
-      <Grid container spacing={16}>
-        <Grid item>
-          <CurrentJob />
-          <CurrentAbility />
+      <Grid container spacing={16} justify="flex-start">
+        <Grid item xs={3}>
+          <Grid container xs="auto" direction="column" spacing={16}>
+            <Grid item key="CurrentJob">
+              <CurrentJob />
+            </Grid>
+            <Grid item>
+              <CurrentAbility />
+            </Grid>
+            <Grid item>
+              <CurrentExAbility />
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item>
-          <AbilityList />
-        </Grid>
-        <Grid item>
-          <JobList />
+
+        <Grid item xs={3}>
+          <Grid item>
+            <AbilityList />
+          </Grid>
+          <Grid item>
+            <JobList />
+          </Grid>
         </Grid>
       </Grid>
     </div>
