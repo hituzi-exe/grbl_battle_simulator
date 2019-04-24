@@ -46,7 +46,8 @@ const abilityList = [
   {
     icon: 'https://example.com/api/icon/1.jpg',
     name: 'ability1',
-    secondary: 'ここにアビリティの詳しい説明文をだらだらと表示させる予定',
+    secondary:
+      'ここにアビリティの詳しい説明文をだらだらと表示させる予定。三行以上は表示できるのかしら？書けば書くほどアビリティ欄が縦に伸びていく様子',
   },
   {
     icon: 'https://example.com/api/icon/2.jpg',
@@ -97,7 +98,7 @@ const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityAct
   const { icon, name, secondary, ...other } = props;
   return (
     <React.Fragment key={name}>
-      <ListItem button>
+      <ListItem>
         <img src={tmpIcon} alt="icon" />
         <ListItemText primary={name} secondary={secondary} />
       </ListItem>

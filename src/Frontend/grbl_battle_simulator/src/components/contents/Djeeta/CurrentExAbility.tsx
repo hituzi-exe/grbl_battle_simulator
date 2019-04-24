@@ -18,7 +18,7 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
-type CurrentAbilityProps = OwnProps & DjeetaState & CurrentExAbilityActions;
+type CurrentExAbilityProps = OwnProps & DjeetaState & CurrentExAbilityActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -72,7 +72,7 @@ const exAbilityList = [
   },
 ];
 
-export const CurrentExAbility: React.SFC<any> = (props: CurrentAbilityProps & StylesProps) => {
+export const CurrentExAbility: React.SFC<any> = (props: CurrentExAbilityProps & StylesProps) => {
   const { classes } = props;
 
   return (
@@ -99,7 +99,7 @@ const ExAbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentExAbilit
   const { icon, name, secondary, changingAbility, onClick, ...other } = props;
   return (
     <React.Fragment key={name}>
-      <ListItem button>
+      <ListItem>
         <ListItemText primary={name} secondary={secondary} />
         <Button variant={changingAbility === '' ? 'outlined' : 'contained'} color="primary" onClick={() => onClick('')}>
           <ChevronRight />
