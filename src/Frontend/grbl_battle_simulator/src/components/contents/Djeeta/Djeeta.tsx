@@ -40,11 +40,13 @@ export const Djeeta: React.SFC<any> = (props: any) => {
         </Grid>
 
         <Grid item xs={3}>
-          <Grid item>
-            <AbilityList />
-          </Grid>
-          <Grid item>
-            <JobList />
+          <Grid container xs="auto" direction="column" spacing={16}>
+            <Grid item>
+              <JobList />
+            </Grid>
+            <Grid item>
+              <AbilityList />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
