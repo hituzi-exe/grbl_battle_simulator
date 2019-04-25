@@ -33,9 +33,6 @@ export const Djeeta: React.SFC<any> = (props: any) => {
             <Grid item>
               <CurrentExAbility />
             </Grid>
-            <Grid item>
-              <CurrentLimitBounus />
-            </Grid>
           </Grid>
         </Grid>
 
@@ -46,6 +43,13 @@ export const Djeeta: React.SFC<any> = (props: any) => {
             </Grid>
             <Grid item>
               <AbilityList />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={5}>
+          <Grid container xs="auto" direction="column" spacing={16}>
+            <Grid item>
+              <CurrentLimitBounus />
             </Grid>
           </Grid>
         </Grid>
