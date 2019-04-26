@@ -93,6 +93,8 @@ interface AbilityItemProps {
   secondary: string;
 }
 
+//TODO ジョブ表示用の表示項目にすること。
+// 画像、ジョブ名、得意武器、タイプは必要。
 const AbilityItem: React.SFC<any> = (props: AbilityItemProps & JobListActions) => {
   const { id, icon, name, secondary, selectJob, ...other } = props;
   return (
