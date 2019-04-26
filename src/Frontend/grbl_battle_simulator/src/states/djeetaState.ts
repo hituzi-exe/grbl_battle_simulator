@@ -59,16 +59,20 @@ export const djeetaReducer = reducerWithInitialState(initialState)
     return Object.assign({}, state, { changingAbility: 'exAbility' });
   })
   .case(abilityListAction.selectAbility, (state, id) => {
-    switch (state.changingAbility) {
-      case 'exAbility':
-        return Object.assign({}, state, { exAbility: id, changingAbility: '' });
-      case 'freeAbility1':
-        return Object.assign({}, state, { freeAbility1: id, changingAbility: '' });
-      case 'freeAbility2':
-        return Object.assign({}, state, { freeAbility2: id, changingAbility: '' });
-      case 'freeAbility3':
-        return Object.assign({}, state, { freeAbility3: id, changingAbility: '' });
-      default:
-        return Object.assign({}, state);
-    }
+    const getAbility = (changingAbility: DjeetaState['changingAbility']) => {
+      switch (changingAbility) {
+        case 'exAbility':
+          return { exAbility: id, changingAbility: '' };
+        case 'freeAbility1':
+          return { freeAbility1: id, changingAbility: '' };
+        case 'freeAbility2':
+          return { freeAbility2: id, changingAbility: '' };
+        case 'freeAbility3':
+          return { freeAbility3: id, changingAbility: '' };
+        default:
+          return {};
+      }
+    };
+
+    return Object.assign({}, state, getAbility(state.changingAbility));
   });
