@@ -40,6 +40,7 @@ export const initialState: DjeetaState = {
 
 export const djeetaReducer = reducerWithInitialState(initialState)
   .case(currentJobAction.changeRank, (state, rank) => {
+    //TODO HP,攻撃力更新ロジックも入れること。
     return Object.assign({}, state, { rank });
   })
   .case(currentJobAction.changeJob, (state, currentJob) => {

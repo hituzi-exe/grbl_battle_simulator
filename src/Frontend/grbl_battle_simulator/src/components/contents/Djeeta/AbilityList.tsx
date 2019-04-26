@@ -93,6 +93,7 @@ interface AbilityItemProps {
   secondary: string;
 }
 
+//TODO CurrentAbility.tsxと共通化すること
 const AbilityItem: React.SFC<any> = (props: AbilityItemProps & AbilityListActions) => {
   const { id, icon, name, secondary, selectAbility, ...other } = props;
   return (

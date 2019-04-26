@@ -94,6 +94,7 @@ interface AbilityItemProps {
   onClick(v: string): void;
 }
 
+//TODO AbilityList.tsxと共通化すること
 const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityActions) => {
   const { icon, name, secondary, ...other } = props;
   return (
