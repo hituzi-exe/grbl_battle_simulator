@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Divider from '@material-ui/core/Divider';
 
+import tmpIcon from '../../../images/tmpIcon.png';
+
 interface OwnProps {}
 
 type CurrentFreeAbilityProps = OwnProps & DjeetaState & CurrentFreeAbilityActions;
@@ -68,7 +70,7 @@ const exAbilityList = [
 ];
 
 export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProps & StylesProps) => {
-  const { classes } = props;
+  const { classes, freeAbilityList } = props;
 
   return (
     <Paper className={classes.paper}>
@@ -78,16 +80,19 @@ export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProp
       <Divider light />
       {/* //TODO onClickへ仮の割り当て。アビリティ一覧画面作成後に変更すること。 */}
       <AbilityItem
+        icon={tmpIcon}
         name={props.freeAbility1}
         changingAbility={props.changingAbility}
         onClick={props.changeFreeAbility1}
       />
       <AbilityItem
+        icon={tmpIcon}
         name={props.freeAbility2}
         changingAbility={props.changingAbility}
         onClick={props.changeFreeAbility2}
       />
       <AbilityItem
+        icon={tmpIcon}
         name={props.freeAbility3}
         changingAbility={props.changingAbility}
         onClick={props.changeFreeAbility3}

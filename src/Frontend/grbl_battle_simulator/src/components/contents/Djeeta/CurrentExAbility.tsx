@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Divider from '@material-ui/core/Divider';
 
+import tmpIcon from '../../../images/tmpIcon.png';
+
 interface OwnProps {}
 
 type CurrentExAbilityProps = OwnProps & DjeetaState & CurrentExAbilityActions;
@@ -38,24 +40,6 @@ export const styles = (theme: Theme) =>
       maxHeight: '100%',
     },
   });
-//TODO Storeへ移動すること
-const abilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary: 'hoge',
-  },
-  {
-    icon: 'https://example.com/api/icon/2.jpg',
-    name: 'ability2',
-    secondary: 'hoge',
-  },
-  {
-    icon: 'https://example.com/api/icon/3.jpg',
-    name: 'ability3',
-    secondary: 'hoge',
-  },
-];
 
 //TODO Storeへ移動すること
 const exAbilityList = [
@@ -76,7 +60,12 @@ export const CurrentExAbility: React.SFC<any> = (props: CurrentExAbilityProps & 
       </Typography>
       <Divider light />
       {/* //TODO onClickへ仮の割り当て。アビリティ一覧画面作成後に変更すること。 */}
-      <AbilityItem name={props.exAbility} changingAbility={props.changingAbility} onClick={props.changeExAbility} />
+      <AbilityItem
+        icon={tmpIcon}
+        name={props.exAbility}
+        changingAbility={props.changingAbility}
+        onClick={props.changeExAbility}
+      />
     </Paper>
   );
 };

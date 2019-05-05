@@ -48,6 +48,7 @@ export const AbilityItem: React.SFC<any> = (props: AbilityItemProps & StylesProp
   return (
     <React.Fragment key={name}>
       <ListItem>
+        <img src={icon} alt="icon" />
         <ListItemText primary={name} secondary={secondary} />
         <Button variant={changingAbility === '' ? 'outlined' : 'contained'} color="primary" onClick={() => onClick('')}>
           <ChevronRight />
