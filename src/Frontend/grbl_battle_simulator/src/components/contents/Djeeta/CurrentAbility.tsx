@@ -41,25 +41,6 @@ export const styles = (theme: Theme) =>
       maxHeight: '100%',
     },
   });
-//TODO Storeへ移動すること
-const abilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary:
-      'ここにアビリティの詳しい説明文をだらだらと表示させる予定。三行以上は表示できるのかしら？書けば書くほどアビリティ欄が縦に伸びていく様子',
-  },
-  {
-    icon: 'https://example.com/api/icon/2.jpg',
-    name: 'ability2',
-    secondary: 'hoge',
-  },
-  {
-    icon: 'https://example.com/api/icon/3.jpg',
-    name: 'ability3',
-    secondary: 'hoge',
-  },
-];
 
 //TODO Storeへ移動すること
 const exAbilityList = [
@@ -79,7 +60,7 @@ export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps & Styl
         アビリティ
       </Typography>
       <Divider light />
-      {abilityList.map(({ icon, name, secondary }) => (
+      {props.abilityList.map(({ icon, name, secondary }) => (
         <AbilityItem icon={icon} name={name} secondary={secondary} />
       ))}
     </Paper>

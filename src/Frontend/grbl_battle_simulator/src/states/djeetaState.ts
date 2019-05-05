@@ -2,6 +2,7 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { currentJobAction } from '../actions/Djeeta/currentJobAction';
 import { currentAbilityAction } from '../actions/Djeeta/currentAbilityAction';
 import { currentExAbilityAction } from '../actions/Djeeta/currentExAbilityAction';
+import { currentFreeAbilityAction } from '../actions/Djeeta/currentFreeAbilityAction';
 import { abilityListAction } from '../actions/Djeeta/abilityListAction';
 
 export interface DjeetaState {
@@ -14,6 +15,15 @@ export interface DjeetaState {
   HP: number;
   attack: number;
   changingAbility: '' | 'freeAbility1' | 'freeAbility2' | 'freeAbility3' | 'exAbility';
+  abilityList: {
+    icon: string;
+    name: string;
+    secondary: string;
+  }[];
+
+  ability1: string;
+  ability2: string;
+  ability3: string;
   exAbility: string;
   freeAbility1: string;
   freeAbility2: string;
@@ -30,7 +40,27 @@ export const initialState: DjeetaState = {
   jobType: '特殊',
   HP: 999,
   attack: 9999,
+  abilityList: [
+    {
+      icon: 'https://example.com/api/icon/1.jpg',
+      name: 'ability1',
+      secondary: 'ここにアビリティの詳しい説明文をだらだらと表示させる予定。',
+    },
+    {
+      icon: 'https://example.com/api/icon/2.jpg',
+      name: 'ability2',
+      secondary: 'hoge',
+    },
+    {
+      icon: 'https://example.com/api/icon/3.jpg',
+      name: 'ability3',
+      secondary: 'hoge',
+    },
+  ],
   changingAbility: '',
+  ability1: 'hoge1',
+  ability2: 'hoge2',
+  ability3: 'hoge3',
   exAbility: 'hoge1',
   freeAbility1: 'hoge1',
   freeAbility2: 'hoge2',
@@ -57,6 +87,15 @@ export const djeetaReducer = reducerWithInitialState(initialState)
   })
   .case(currentExAbilityAction.changeExAbility, (state, exAbility) => {
     return Object.assign({}, state, { changingAbility: 'exAbility' });
+  })
+  .case(currentFreeAbilityAction.changeFreeAbility1, (state, exAbility) => {
+    return Object.assign({}, state, { changingAbility: 'freeAbility1' });
+  })
+  .case(currentFreeAbilityAction.changeFreeAbility2, (state, exAbility) => {
+    return Object.assign({}, state, { changingAbility: 'freeAbility2' });
+  })
+  .case(currentFreeAbilityAction.changeFreeAbility2, (state, exAbility) => {
+    return Object.assign({}, state, { changingAbility: 'freeAbility3' });
   })
   .case(abilityListAction.selectAbility, (state, id) => {
     const getAbility = (changingAbility: DjeetaState['changingAbility']) => {
