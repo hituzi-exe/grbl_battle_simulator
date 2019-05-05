@@ -30,7 +30,7 @@ import tmpIcon from '../../../images/Character400x157.png';
 
 interface OwnProps {}
 
-type CurrentJobProps = OwnProps & DjeetaState & CurrentJobActions;
+type CurrentCharacterProps = OwnProps & DjeetaState & CurrentJobActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -61,7 +61,7 @@ export const styles = (theme: Theme) =>
     },
   });
 
-export const Character: React.SFC<any> = (props: CurrentJobProps & StylesProps) => {
+export const Character: React.SFC<any> = (props: CurrentCharacterProps & StylesProps) => {
   const { classes } = props;
 
   return (
@@ -69,7 +69,7 @@ export const Character: React.SFC<any> = (props: CurrentJobProps & StylesProps) 
       <CharacterHeader rarity={'R'} name={'name'} title={'title'} />
 
       <img src={tmpIcon} alt="icon" />
-      <CardMedia src={tmpIcon} title="Paella dish" />
+      {/* <CharacterMedia src={tmpIcon} /> */}
 
       <CardContent>
         <Typography component="p">
@@ -90,6 +90,9 @@ export const Character: React.SFC<any> = (props: CurrentJobProps & StylesProps) 
     </Card>
   );
 };
+
+// <CharacterStatus />
+// <CharacterActions />
 
 // interface CharacterProps {
 //   rarity: 'R' | 'SR' | 'SSR';
