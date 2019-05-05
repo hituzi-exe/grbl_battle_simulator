@@ -2,19 +2,14 @@ import * as React from 'react';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentFreeAbilityActions } from '../../../containers/Djeeta/currentFreeAbilityContainer';
 
+import { AbilityItem } from './AbilityItem';
+
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-
-import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
@@ -98,27 +93,5 @@ export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProp
         onClick={props.changeFreeAbility3}
       />
     </Paper>
-  );
-};
-
-interface AbilityItemProps {
-  icon: string;
-  name: string;
-  secondary: string;
-  changingAbility: string;
-  onClick(v: string): void;
-}
-
-const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentFreeAbilityActions) => {
-  const { icon, name, secondary, changingAbility, onClick, ...other } = props;
-  return (
-    <React.Fragment key={name}>
-      <ListItem>
-        <ListItemText primary={name} secondary={secondary} />
-        <Button variant={changingAbility === '' ? 'outlined' : 'contained'} color="primary" onClick={() => onClick('')}>
-          <ChevronRight />
-        </Button>
-      </ListItem>
-    </React.Fragment>
   );
 };
