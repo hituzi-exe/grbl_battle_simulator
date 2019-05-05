@@ -7,13 +7,13 @@ import { abilityListAction } from '../actions/Djeeta/abilityListAction';
 
 export interface DjeetaState {
   rank: number;
+  HP: number;
+  attack: number;
   currentJob: string;
   currentJobLv: number;
   forteWeapon1: string;
   forteWeapon2: string;
   jobType: string;
-  HP: number;
-  attack: number;
   changingAbility: '' | 'freeAbility1' | 'freeAbility2' | 'freeAbility3' | 'exAbility';
   abilityList: {
     icon: string;
@@ -33,13 +33,13 @@ export interface DjeetaState {
 
 export const initialState: DjeetaState = {
   rank: 150,
+  HP: 999,
+  attack: 9999,
   currentJob: 'ファイター',
   currentJobLv: 20,
   forteWeapon1: '剣',
   forteWeapon2: '斧',
   jobType: '特殊',
-  HP: 999,
-  attack: 9999,
   abilityList: [
     {
       icon: 'https://example.com/api/icon/1.jpg',
@@ -94,7 +94,7 @@ export const djeetaReducer = reducerWithInitialState(initialState)
   .case(currentFreeAbilityAction.changeFreeAbility2, (state, exAbility) => {
     return Object.assign({}, state, { changingAbility: 'freeAbility2' });
   })
-  .case(currentFreeAbilityAction.changeFreeAbility2, (state, exAbility) => {
+  .case(currentFreeAbilityAction.changeFreeAbility3, (state, exAbility) => {
     return Object.assign({}, state, { changingAbility: 'freeAbility3' });
   })
   .case(abilityListAction.selectAbility, (state, id) => {
