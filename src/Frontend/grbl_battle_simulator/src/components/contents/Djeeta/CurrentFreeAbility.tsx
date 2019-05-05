@@ -82,17 +82,17 @@ export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProp
       </Typography>
       <Divider light />
       {/* //TODO onClickへ仮の割り当て。アビリティ一覧画面作成後に変更すること。 */}
-      <FreeAbilityItem
+      <AbilityItem
         name={props.freeAbility1}
         changingAbility={props.changingAbility}
         onClick={props.changeFreeAbility1}
       />
-      <FreeAbilityItem
+      <AbilityItem
         name={props.freeAbility2}
         changingAbility={props.changingAbility}
         onClick={props.changeFreeAbility2}
       />
-      <FreeAbilityItem
+      <AbilityItem
         name={props.freeAbility3}
         changingAbility={props.changingAbility}
         onClick={props.changeFreeAbility3}
@@ -109,7 +109,7 @@ interface AbilityItemProps {
   onClick(v: string): void;
 }
 
-const FreeAbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentFreeAbilityActions) => {
+const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentFreeAbilityActions) => {
   const { icon, name, secondary, changingAbility, onClick, ...other } = props;
   return (
     <React.Fragment key={name}>
