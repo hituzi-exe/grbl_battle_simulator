@@ -287,17 +287,17 @@ git log --all --graph --decorate --oneline みたいなのを出したい。
 initialState :{ //戦闘画面に移行する前のデータ
     Djeeta:{
         rank:"225",
-        element:"earth|air|fire|water|light|dark",
+        element:"earth|wind|fire|water|light|dark",
         job:{
             id:"",
         },
-        abilitys:[
+        abilities:[
             {id:""},
             {id:""},
             {id:""},
             {id:""}
         ],
-        supportAbilitys:[
+        supportAbilities:[
             {},
             {},
         ],
@@ -362,10 +362,10 @@ masterData:{
                 hp: "",
                 attack: "",
                 element: "earth|air|fire|water|light|dark",
-                abilitys: [
+                abilities: [
                     {},{},{},{}
                 ],
-                supportabilitys: [
+                supportabilities: [
                     {},{}
                 ],
             },
