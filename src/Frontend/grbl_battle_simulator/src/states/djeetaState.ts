@@ -20,7 +20,7 @@ export interface DjeetaState {
     name: string;
     secondary: string;
   }[];
-
+  freeAbilityList: ability[];
   ability1: string;
   ability2: string;
   ability3: string;
@@ -29,6 +29,20 @@ export interface DjeetaState {
   freeAbility2: string;
   freeAbility3: string;
   lbclass: number;
+}
+
+interface ability {
+  id: string;
+  name: string;
+  icon: string;
+  effect: string;
+  cooldown: number;
+}
+interface supportAbility {
+  id: string;
+  name: string;
+  icon: string;
+  effect: string;
 }
 
 export const initialState: DjeetaState = {
@@ -55,6 +69,29 @@ export const initialState: DjeetaState = {
       icon: 'https://example.com/api/icon/3.jpg',
       name: 'ability3',
       secondary: 'hoge',
+    },
+  ],
+  freeAbilityList: [
+    {
+      id: '',
+      icon: 'https://example.com/api/icon/1.jpg',
+      name: 'freeAbility1',
+      effect: 'ここにアビリティの詳しい説明文をだらだらと表示させる予定。',
+      cooldown: 3,
+    },
+    {
+      id: '',
+      icon: 'https://example.com/api/icon/2.jpg',
+      name: 'ability2',
+      effect: 'hoge',
+      cooldown: 3,
+    },
+    {
+      id: '',
+      icon: 'https://example.com/api/icon/3.jpg',
+      name: 'ability3',
+      effect: 'hoge',
+      cooldown: 3,
     },
   ],
   changingAbility: '',
