@@ -5,9 +5,6 @@ interface OwnProps {}
 
 import { Character } from './Character';
 
-// type HogeProps = OwnProps & HogeState & HogeActions;
-
-// export const Characters: React.SFC<any> = (props: HogeProps) => {
 export const Characters: React.SFC<any> = (props: any) => {
   return (
     <div>

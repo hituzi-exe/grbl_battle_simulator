@@ -5,7 +5,6 @@ import { createStyles, MuiThemeProvider, createMuiTheme, withStyles, WithStyles 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 
-import HogeContainer from '../src/containers/hogeContainer';
 import SidebarContainer from './containers/sidebarContainer';
 import HeaderContainer from './containers/headerContainer';
 import ContentContainer from './containers/contentContainer';
