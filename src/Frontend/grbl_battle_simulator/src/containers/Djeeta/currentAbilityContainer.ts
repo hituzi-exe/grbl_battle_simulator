@@ -1,7 +1,7 @@
 import { Action } from 'typescript-fsa';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from '../../store';
+import { State } from '../../store';
 import { currentAbilityAction } from '../../actions/Djeeta/currentAbilityAction';
 import { styles, CurrentAbility } from '../../components/contents/Djeeta/CurrentAbility';
 
@@ -21,7 +21,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-function mapStateToProps(appState: AppState) {
+function mapStateToProps(appState: State) {
   return Object.assign({}, appState.djeeta);
 }
 

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { SidebarState } from '../states/sidebarState';
+import { AppState } from '../states/AppState';
 import { SidebarActions } from '../containers/sidebarContainer';
 
 import Divider from '@material-ui/core/Divider';
@@ -25,7 +25,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 
 interface OwnProps {}
 
-type SidebarProps = OwnProps & SidebarState & SidebarActions;
+type SidebarProps = OwnProps & AppState & SidebarActions;
 
 interface Props extends WithStyles<typeof styles> {}
 
@@ -97,7 +97,7 @@ const categories = [
 ];
 
 export const SidebarComponent: React.SFC<any> = (props: SidebarProps & Props) => {
-  const { classes, active, ...other } = props;
+  const { classes, activeMenu, ...other } = props;
 
   return (
     <Drawer variant="permanent" {...other}>
@@ -126,7 +126,7 @@ export const SidebarComponent: React.SFC<any> = (props: SidebarProps & Props) =>
                   className={classNames(
                     classes.item,
                     classes.itemActionable,
-                    active === childId && classes.itemActiveItem
+                    activeMenu === childId && classes.itemActiveItem
                   )}
                 >
                   <ListItemIcon>{icon}</ListItemIcon>

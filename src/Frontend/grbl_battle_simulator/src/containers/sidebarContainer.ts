@@ -1,7 +1,7 @@
 import { Action } from 'typescript-fsa';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from '../store';
+import { State } from '../store';
 import { sidebarActions } from '../actions/sidebarAction';
 import { styles, SidebarComponent } from '../components/SidebarComponent';
 
@@ -17,8 +17,8 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-function mapStateToProps(appState: AppState) {
-  return Object.assign({}, appState.sidebar);
+function mapStateToProps(appState: State) {
+  return Object.assign({}, appState.app);
 }
 
 export default withStyles(styles)(

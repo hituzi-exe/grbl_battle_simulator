@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Route } from 'react-router-dom';
-import { SidebarState } from '../states/sidebarState';
+import { AppState } from '../states/AppState';
 
 import { Summary } from './contents/Summary';
 
@@ -18,10 +18,10 @@ import { Help } from './contents/Help';
 
 interface OwnProps {}
 
-type ContentProps = OwnProps & SidebarState;
+type ContentProps = OwnProps & AppState;
 
 export const ContentComponent: React.SFC<any> = (props: ContentProps) => {
-  const { active } = props;
+  const { activeMenu } = props;
 
   return (
     <div>

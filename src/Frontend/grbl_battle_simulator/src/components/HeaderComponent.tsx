@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 
-import { HeaderState } from '../states/headerState';
+import { AppState } from '../states/AppState';
 import { HeaderActions } from '../containers/headerContainer';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -15,7 +15,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 interface OwnProps {}
 
-type HeaderProps = OwnProps & HeaderState & HeaderActions;
+type HeaderProps = OwnProps & AppState & HeaderActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 

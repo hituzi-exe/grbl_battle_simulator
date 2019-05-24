@@ -1,7 +1,7 @@
 import { Action } from 'typescript-fsa';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from '../store';
+import { State } from '../store';
 import { headerActions } from '../actions/headerAction';
 import { styles, HeaderComponent } from '../components/HeaderComponent';
 
@@ -19,8 +19,8 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-function mapStateToProps(appState: AppState) {
-  return Object.assign({}, appState.header);
+function mapStateToProps(appState: State) {
+  return Object.assign({}, appState.app);
 }
 
 export default withStyles(styles)(

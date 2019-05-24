@@ -1,7 +1,7 @@
 import { Action } from 'typescript-fsa';
 import { Dispatch, compose } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from '../../store';
+import { State } from '../../store';
 import { jobListAction } from '../../actions/Djeeta/jobListAction';
 import { styles, JobList } from '../../components/contents/Djeeta/JobList';
 
@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-function mapStateToProps(appState: AppState) {
+function mapStateToProps(appState: State) {
   return Object.assign({}, appState.djeeta);
 }
 

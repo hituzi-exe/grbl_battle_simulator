@@ -1,21 +1,18 @@
 import { createStore, combineReducers } from 'redux';
 import { hogeReducer, HogeState } from './states/hogeState';
-import { sidebarReducer, SidebarState } from './states/sidebarState';
-import { headerReducer, HeaderState } from './states/headerState';
+import { appReducer, AppState } from './states/AppState';
 import { djeetaReducer, DjeetaState } from './states/djeetaState';
 
-export type AppState = {
+export type State = {
   hoge: HogeState;
-  sidebar: SidebarState;
-  header: HeaderState;
+  app: AppState;
   djeeta: DjeetaState;
 };
 
 const store = createStore(
-  combineReducers<AppState>({
+  combineReducers<State>({
     hoge: hogeReducer,
-    sidebar: sidebarReducer,
-    header: headerReducer,
+    app: appReducer,
     djeeta: djeetaReducer,
   })
 );

@@ -1,7 +1,7 @@
 import { Action } from 'typescript-fsa';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from '../store';
+import { State } from '../store';
 import { hogeActions } from '../actions/hogeAction';
 import { HogeComponent } from '../components/hogeComponent';
 
@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
   };
 }
 
-function mapStateToProps(appState: AppState) {
+function mapStateToProps(appState: State) {
   return Object.assign({}, appState.hoge);
 }
 
