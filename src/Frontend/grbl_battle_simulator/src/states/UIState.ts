@@ -3,7 +3,7 @@ import { currentJobAction } from '../actions/Djeeta/currentJobAction';
 import { jobListAction } from '../actions/Djeeta/jobListAction';
 
 export interface UIState {
-  djeeta: DjeetaUIState;
+  djeetaUI: DjeetaUIState;
 }
 
 export interface DjeetaUIState {
@@ -21,7 +21,7 @@ export interface DjeetaUIState {
 }
 
 export const initialState: UIState = {
-  djeeta: {
+  djeetaUI: {
     showJobList: false,
     isJobChanging: false,
     showCurrentExAility: true,
@@ -38,11 +38,21 @@ export const initialState: UIState = {
 
 export const uiReducer = reducerWithInitialState(initialState)
   .case(currentJobAction.changeJob, state => {
-    return Object.assign({}, state, { showJobList: true, isJobChanging: true });
+    return Object.assign({}, state, {
+      djeetaUI: {
+        showJobList: true,
+        isJobChanging: true,
+        showAbilityList: false,
+        isExAbilityChanging: false,
+        isFreeAbility1Changing: false,
+        isFreeAbility2Changing: false,
+        isFreeAbility3Changing: false,
+      },
+    });
   })
   .case(jobListAction.selectJob, (state, menuid) => {
-    return Object.assign({}, state, { showJobList: false, isJobChanging: false });
+    return Object.assign({}, state, { djeetaUI: { showJobList: false, isJobChanging: false } });
   })
   .case(jobListAction.closeJobList, state => {
-    return Object.assign({}, state, { showJobList: false, isJobChanging: false });
+    return Object.assign({}, state, { djeetaUI: { showJobList: false, isJobChanging: false } });
   });

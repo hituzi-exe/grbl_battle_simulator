@@ -110,9 +110,6 @@ export const djeetaReducer = reducerWithInitialState(initialState)
     //TODO HP,攻撃力更新ロジックも入れること。
     return Object.assign({}, state, { rank });
   })
-  .case(currentJobAction.changeJob, (state, currentJob) => {
-    return Object.assign({}, state, { currentJob });
-  })
   .case(currentAbilityAction.changeFreeAbility1, (state, freeAbility1) => {
     return Object.assign({}, state, { changingAbility: 'freeAbility1' });
   })

@@ -9,16 +9,18 @@ import { withStyles } from '@material-ui/core/styles';
 
 export interface JobListActions {
   selectJob: (v: string) => Action<string>;
+  closeJobList: () => Action<string>;
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     selectJob: (v: string) => dispatch(jobListAction.selectJob(v)),
+    closeJobList: (v: string) => dispatch(jobListAction.closeJobList(v)),
   };
 }
 
 function mapStateToProps(appState: State) {
-  return Object.assign({}, appState.djeeta);
+  return Object.assign({}, appState.djeeta, appState.ui);
 }
 
 export default withStyles(styles)(

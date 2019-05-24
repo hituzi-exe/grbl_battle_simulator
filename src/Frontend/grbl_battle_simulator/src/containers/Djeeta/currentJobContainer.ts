@@ -20,7 +20,7 @@ function mapDispatchToProps(dispatch: Dispatch<any>) {
 }
 
 function mapStateToProps(appState: State) {
-  return Object.assign({}, appState.djeeta);
+  return Object.assign({}, appState.djeeta, appState.ui);
 }
 
 export default withStyles(styles)(

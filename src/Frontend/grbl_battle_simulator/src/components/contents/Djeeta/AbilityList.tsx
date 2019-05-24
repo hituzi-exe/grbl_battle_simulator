@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { UIState } from '../../../states/UIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { AbilityListActions } from '../../../containers/Djeeta/abilityListContainer';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
@@ -17,7 +19,7 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
-type AbilityListProps = OwnProps & DjeetaState & AbilityListActions;
+type AbilityListProps = OwnProps & UIState & DjeetaState & AbilityListActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -72,11 +74,14 @@ const abilityList = [
 ];
 
 export const AbilityList: React.SFC<any> = (props: AbilityListProps & StylesProps) => {
-  const { classes } = props;
+  const { classes, djeetaUI } = props;
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} style={{ display: djeetaUI.showAbilityList ? '' : 'none' }}>
       <List subheader={<ListSubheader>アビリティ一覧</ListSubheader>}>
+        <Button size="small" color="primary" onClick={e => props.selectAbility('クリュ')}>
+          close
+        </Button>
         <Divider light />
         {abilityList.map(({ id, icon, name, secondary }) => (
           <AbilityItem id={id} icon={icon} name={name} secondary={secondary} selectAbility={props.selectAbility} />
