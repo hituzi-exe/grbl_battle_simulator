@@ -283,8 +283,8 @@ git log --all --graph --decorate --oneline みたいなのを出したい。
 
 ### Store sample
 
-```json
-initialState :{ //戦闘画面に移行する前のデータ
+```ts
+interface initialState :{ //戦闘画面に移行する前のデータ
     Djeeta:{
         rank:"225",
         element:"earth|wind|fire|water|light|dark",
@@ -431,7 +431,7 @@ ui: { //Storeで管理せずにそれぞれのコンポーネントに持たせ�
 }
 ```
 
-```tsx :DjeetaStatusInterface
+```ts :DjeetaStatusInterface
 interface Weapon {
   name: '剣' | '短剣' | '槍' | '斧' | '杖' | '銃' | '格闘' | '弓' | '楽器' | '刀';
 }
