@@ -10,12 +10,14 @@ import { withStyles } from '@material-ui/core/styles';
 export interface CurrentJobActions {
   changeRank: (v: string) => Action<string>;
   changeJob: (v: string) => Action<string>;
+  changeLimitBounus: (v: string) => Action<string>;
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     changeRank: (v: string) => dispatch(currentJobAction.changeRank(v)),
     changeJob: (v: string) => dispatch(currentJobAction.changeJob(v)),
+    changeLimitBounus: (v: string) => dispatch(currentJobAction.changeLimitBounus(v)),
   };
 }
 

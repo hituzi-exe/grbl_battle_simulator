@@ -14,7 +14,7 @@ export const Djeeta: React.SFC<any> = (props: any) => {
   return (
     <div>
       <Grid container spacing={16} justify="flex-start">
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <Grid container xs="auto" direction="column" spacing={16}>
             <Grid item key="CurrentJob">
               <CurrentJob />
@@ -31,19 +31,11 @@ export const Djeeta: React.SFC<any> = (props: any) => {
           </Grid>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={8}>
           <Grid container xs="auto" direction="column" spacing={16}>
             <Grid item>
               <JobList />
-            </Grid>
-            <Grid item>
               <AbilityList />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={5}>
-          <Grid container xs="auto" direction="column" spacing={16}>
-            <Grid item>
               <CurrentLimitBounus />
             </Grid>
           </Grid>
