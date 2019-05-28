@@ -47,6 +47,8 @@ export const uiReducer = reducerWithInitialState(initialState)
         isFreeAbility1Changing: false,
         isFreeAbility2Changing: false,
         isFreeAbility3Changing: false,
+        showLimitBounus: false,
+        isLimitBounusChanging: false,
       },
     });
   })
