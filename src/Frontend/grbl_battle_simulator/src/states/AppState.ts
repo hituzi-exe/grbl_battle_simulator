@@ -20,5 +20,5 @@ export const appReducer = reducerWithInitialState(initialState)
     return Object.assign({}, state, { isLogin: false });
   })
   .case(sidebarActions.selectMenu, (state, menuid) => {
-    return Object.assign({}, state, { active: menuid });
+    return Object.assign({}, state, { activeMenu: menuid });
   });
