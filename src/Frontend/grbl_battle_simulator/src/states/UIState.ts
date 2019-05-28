@@ -10,9 +10,9 @@ export interface DjeetaUIState {
   showJobList: boolean;
   isJobChanging: boolean;
   showCurrentExAility: boolean;
+  showCurrentFreeAility: boolean;
   showAbilityList: boolean;
   isExAbilityChanging: boolean;
-  showCurrentFreeAility: boolean;
   isFreeAbility1Changing: boolean;
   isFreeAbility2Changing: boolean;
   isFreeAbility3Changing: boolean;
@@ -25,9 +25,9 @@ export const initialState: UIState = {
     showJobList: false,
     isJobChanging: false,
     showCurrentExAility: true,
+    showCurrentFreeAility: false,
     showAbilityList: false,
     isExAbilityChanging: false,
-    showCurrentFreeAility: false,
     isFreeAbility1Changing: false,
     isFreeAbility2Changing: false,
     isFreeAbility3Changing: false,
