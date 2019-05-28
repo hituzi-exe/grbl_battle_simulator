@@ -4,6 +4,7 @@ import { currentAbilityAction } from '../actions/Djeeta/currentAbilityAction';
 import { currentExAbilityAction } from '../actions/Djeeta/currentExAbilityAction';
 import { currentFreeAbilityAction } from '../actions/Djeeta/currentFreeAbilityAction';
 import { abilityListAction } from '../actions/Djeeta/abilityListAction';
+import { jobListAction } from '../actions/Djeeta/jobListAction';
 
 export interface DjeetaState {
   rank: number;
@@ -148,4 +149,7 @@ export const djeetaReducer = reducerWithInitialState(initialState)
     };
 
     return Object.assign({}, state, getAbility(state.changingAbility));
+  })
+  .case(jobListAction.selectJob, (state, name) => {
+    return Object.assign({}, state, { currentJob: name });
   });
