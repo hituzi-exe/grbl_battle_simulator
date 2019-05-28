@@ -9,11 +9,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 export interface AbilityListActions {
   selectAbility: (v: string) => Action<string>;
+  closeAbility: (v: string) => Action<string>;
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>) {
   return {
     selectAbility: (v: string) => dispatch(abilityListAction.selectAbility(v)),
+    closeAbility: (v: string) => dispatch(abilityListAction.closeAbility(v)),
   };
 }
 

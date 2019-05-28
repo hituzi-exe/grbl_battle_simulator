@@ -2,6 +2,7 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { currentJobAction } from '../actions/Djeeta/currentJobAction';
 import { jobListAction } from '../actions/Djeeta/jobListAction';
 import { currentExAbilityAction } from '../actions/Djeeta/currentExAbilityAction';
+import { abilityListAction } from '../actions/Djeeta/abilityListAction';
 
 export interface UIState {
   djeetaUI: DjeetaUIState;
@@ -73,4 +74,7 @@ export const uiReducer = reducerWithInitialState(initialState)
         isLimitBounusChanging: false,
       },
     });
+  })
+  .case(abilityListAction.closeAbility, state => {
+    return Object.assign({}, state, { djeetaUI: { showAbilityList: false, isExAbilityChanging: false } });
   });

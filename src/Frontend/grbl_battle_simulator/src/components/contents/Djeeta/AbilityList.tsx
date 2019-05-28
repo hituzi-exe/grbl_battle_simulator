@@ -79,7 +79,7 @@ export const AbilityList: React.SFC<any> = (props: AbilityListProps & StylesProp
   return (
     <Paper className={classes.paper} style={{ display: djeetaUI.showAbilityList ? '' : 'none' }}>
       <List subheader={<ListSubheader>アビリティ一覧</ListSubheader>}>
-        <Button size="small" color="primary" onClick={e => props.selectAbility('クリュ')}>
+        <Button size="small" color="primary" onClick={e => props.closeAbility('')}>
           close
         </Button>
         <Divider light />
