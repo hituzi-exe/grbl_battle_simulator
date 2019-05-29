@@ -19,6 +19,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
+    "redux-saga": "^1.0.2",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.18.0",
@@ -44,6 +45,9 @@
   ],
   "devDependencies": {
     "@types/react-redux": "^7.0.6",
-    "react-custom-scrollbars": "^4.2.1"
+    "braces": "^3.0.2",
+    "handlebars": "^4.1.2",
+    "react-custom-scrollbars": "^4.2.1",
+    "tar": "^4.4.8"
   }
 }
