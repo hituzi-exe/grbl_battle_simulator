@@ -14,6 +14,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import LooksOne from '@material-ui/icons/LooksOne';
 import LooksTwo from '@material-ui/icons/LooksTwo';
@@ -21,12 +24,12 @@ import Looks3 from '@material-ui/icons/Looks3';
 import Looks4 from '@material-ui/icons/Looks4';
 import Filter1 from '@material-ui/icons/Filter1';
 import Filter2 from '@material-ui/icons/Filter2';
+import Close from '@material-ui/icons/Close';
 
 interface OwnProps {}
-
-type JobListProps = OwnProps & DjeetaUIState & DjeetaState & JobListActions;
-
 interface StylesProps extends WithStyles<typeof styles> {}
+
+type JobListProps = OwnProps & DjeetaUIState & DjeetaState & JobListActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -119,7 +122,7 @@ const TabContainer: React.SFC<any> = (props: TabContainerProps) => {
   );
 };
 
-export const JobList: React.SFC<any> = (props: JobListProps & StylesProps) => {
+export const JobList: React.SFC<any> = (props: JobListProps) => {
   const { classes, showJobList } = props;
   const [value, setValue] = React.useState(0);
   function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
@@ -128,14 +131,23 @@ export const JobList: React.SFC<any> = (props: JobListProps & StylesProps) => {
 
   return (
     <Paper className={classes.paper} style={{ display: showJobList ? '' : 'none' }}>
-      <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary">
-        <Tab icon={<LooksOne />} aria-label="1" />
-        <Tab icon={<LooksTwo />} aria-label="2" />
-        <Tab icon={<Looks3 />} aria-label="3" />
-        <Tab icon={<Looks4 />} aria-label="4" />
-        <Tab icon={<Filter1 />} aria-label="EX1" />
-        <Tab icon={<Filter2 />} aria-label="EX2" />
-      </Tabs>
+      <Grid item container direction="row" justify="space-between">
+        <Grid item>
+          <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary">
+            <Tab icon={<LooksOne />} aria-label="1" />
+            <Tab icon={<LooksTwo />} aria-label="2" />
+            <Tab icon={<Looks3 />} aria-label="3" />
+            <Tab icon={<Looks4 />} aria-label="4" />
+            <Tab icon={<Filter1 />} aria-label="EX1" />
+            <Tab icon={<Filter2 />} aria-label="EX2" />
+          </Tabs>
+        </Grid>
+        <Grid item>
+          <IconButton color="default" onClick={() => props.closeJobList()}>
+            <Close />
+          </IconButton>
+        </Grid>
+      </Grid>
       {value === 0 && (
         <List>
           {jobList1.map(({ id, icon, name, secondary }) => (
