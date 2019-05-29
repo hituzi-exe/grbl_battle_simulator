@@ -4,13 +4,10 @@ import { DjeetaState } from '../../../states/djeetaState';
 import { AbilityListActions } from '../../../containers/Djeeta/abilityListContainer';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
-
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
-
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
