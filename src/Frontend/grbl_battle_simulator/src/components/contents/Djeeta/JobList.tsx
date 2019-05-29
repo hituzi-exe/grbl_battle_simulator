@@ -8,13 +8,19 @@ import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/s
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
-import ListSubheader from '@material-ui/core/ListSubheader';
-
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
 import ChevronRight from '@material-ui/icons/ChevronRight';
+import LooksOne from '@material-ui/icons/LooksOne';
+import LooksTwo from '@material-ui/icons/LooksTwo';
+import Looks3 from '@material-ui/icons/Looks3';
+import Looks4 from '@material-ui/icons/Looks4';
+import Filter1 from '@material-ui/icons/Filter1';
+import Filter2 from '@material-ui/icons/Filter2';
 
 interface OwnProps {}
 
@@ -26,6 +32,9 @@ export const styles = (theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 0,
+    },
+    indicator: {
+      backgroundColor: 'white',
     },
     paper: {},
     title: {
@@ -45,7 +54,7 @@ export const styles = (theme: Theme) =>
     },
   });
 //TODO Storeへ移動すること
-const abilityList = [
+const jobList1 = [
   {
     id: '1',
     icon: 'https://example.com/api/icon/1.jpg',
@@ -72,22 +81,84 @@ const abilityList = [
   },
 ];
 
+const jobList2 = [
+  {
+    id: '10',
+    icon: 'https://example.com/api/icon/1.jpg',
+    name: 'job10',
+    secondary: 'hoge',
+  },
+  {
+    id: '11',
+    icon: 'https://example.com/api/icon/2.jpg',
+    name: 'job11',
+    secondary: 'hoge',
+  },
+  {
+    id: '12',
+    icon: 'https://example.com/api/icon/3.jpg',
+    name: 'job12',
+    secondary: 'hoge',
+  },
+  {
+    id: '13',
+    icon: 'https://example.com/api/icon/4.jpg',
+    name: 'job13',
+    secondary: 'hoge',
+  },
+];
+
+interface TabContainerProps {
+  children?: React.ReactNode;
+}
+const TabContainer: React.SFC<any> = (props: TabContainerProps) => {
+  return (
+    <Typography component="div" style={{ padding: 8 * 3 }}>
+      {props.children}
+    </Typography>
+  );
+};
+
 export const JobList: React.SFC<any> = (props: JobListProps & StylesProps) => {
   const { classes, showJobList } = props;
+  const [value, setValue] = React.useState(0);
+  function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
+    setValue(newValue);
+  }
 
   return (
     <Paper className={classes.paper} style={{ display: showJobList ? '' : 'none' }}>
-      <List subheader={<ListSubheader>ジョブ一覧</ListSubheader>}>
-        <Divider light />
-        {abilityList.map(({ id, icon, name, secondary }) => (
-          <AbilityItem id={id} icon={icon} name={name} secondary={secondary} selectJob={props.selectJob} />
-        ))}
-      </List>
+      <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary">
+        <Tab icon={<LooksOne />} aria-label="1" />
+        <Tab icon={<LooksTwo />} aria-label="2" />
+        <Tab icon={<Looks3 />} aria-label="3" />
+        <Tab icon={<Looks4 />} aria-label="4" />
+        <Tab icon={<Filter1 />} aria-label="EX1" />
+        <Tab icon={<Filter2 />} aria-label="EX2" />
+      </Tabs>
+      {value === 0 && (
+        <List>
+          {jobList1.map(({ id, icon, name, secondary }) => (
+            <JobItem id={id} icon={icon} name={name} secondary={secondary} selectJob={props.selectJob} />
+          ))}
+        </List>
+      )}
+      {value === 1 && (
+        <List>
+          {jobList2.map(({ id, icon, name, secondary }) => (
+            <JobItem id={id} icon={icon} name={name} secondary={secondary} selectJob={props.selectJob} />
+          ))}
+        </List>
+      )}
+      {value === 2 && <TabContainer>Item Three</TabContainer>}
+      {value === 3 && <TabContainer>Item Four</TabContainer>}
+      {value === 4 && <TabContainer>Item EX1</TabContainer>}
+      {value === 5 && <TabContainer>Item EX2</TabContainer>}
     </Paper>
   );
 };
 
-interface AbilityItemProps {
+interface JobItemProps {
   id: string;
   icon: string;
   name: string;
@@ -96,7 +167,7 @@ interface AbilityItemProps {
 
 //TODO ジョブ表示用の表示項目にすること。
 // 画像、ジョブ名、得意武器、タイプは必要。
-const AbilityItem: React.SFC<any> = (props: AbilityItemProps & JobListActions) => {
+const JobItem: React.SFC<any> = (props: JobItemProps & JobListActions) => {
   const { id, icon, name, secondary, selectJob, ...other } = props;
   return (
     <React.Fragment key={name}>

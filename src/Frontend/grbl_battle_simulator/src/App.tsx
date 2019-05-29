@@ -49,17 +49,6 @@ theme = {
         },
       },
     },
-    MuiTabs: {
-      root: {
-        marginLeft: theme.spacing.unit,
-      },
-      indicator: {
-        height: 3,
-        borderTopLeftRadius: 3,
-        borderTopRightRadius: 3,
-        backgroundColor: theme.palette.common.white,
-      },
-    },
     MuiTab: {
       root: {
         textTransform: 'initial',
