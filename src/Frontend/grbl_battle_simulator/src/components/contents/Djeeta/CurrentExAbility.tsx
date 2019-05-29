@@ -1,22 +1,22 @@
 import * as React from 'react';
+import { UIState } from '../../../states/UIState';
 import { DjeetaState } from '../../../states/djeetaState';
+
 import { CurrentExAbilityActions } from '../../../containers/Djeeta/currentExAbilityContainer';
+
 import { AbilityItem } from './AbilityItem';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
-
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
 import Divider from '@material-ui/core/Divider';
 
 import tmpIcon from '../../../images/tmpIcon.png';
 
 interface OwnProps {}
-
-type CurrentExAbilityProps = OwnProps & DjeetaState & CurrentExAbilityActions;
-
 interface StylesProps extends WithStyles<typeof styles> {}
+
+type CurrentExAbilityProps = OwnProps & UIState & DjeetaState & CurrentExAbilityActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -50,11 +50,11 @@ const exAbilityList = [
   },
 ];
 
-export const CurrentExAbility: React.SFC<any> = (props: CurrentExAbilityProps & StylesProps) => {
-  const { classes } = props;
+export const CurrentExAbility: React.SFC<any> = (props: CurrentExAbilityProps) => {
+  const { classes, djeetaUI } = props;
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} style={{ display: djeetaUI.showCurrentExAility ? '' : 'none' }}>
       <Typography color="textPrimary" gutterBottom className={classes.title}>
         Exアビリティ
       </Typography>

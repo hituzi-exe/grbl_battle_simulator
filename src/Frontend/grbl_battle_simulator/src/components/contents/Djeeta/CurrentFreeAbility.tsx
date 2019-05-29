@@ -1,23 +1,21 @@
 import * as React from 'react';
+import { UIState } from '../../../states/UIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentFreeAbilityActions } from '../../../containers/Djeeta/currentFreeAbilityContainer';
-
-import { AbilityItem } from './AbilityItem';
 
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
 import Divider from '@material-ui/core/Divider';
 
+import { AbilityItem } from './AbilityItem';
 import tmpIcon from '../../../images/tmpIcon.png';
 
 interface OwnProps {}
-
-type CurrentFreeAbilityProps = OwnProps & DjeetaState & CurrentFreeAbilityActions;
-
 interface StylesProps extends WithStyles<typeof styles> {}
+
+type CurrentFreeAbilityProps = OwnProps & DjeetaState & UIState & CurrentFreeAbilityActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -69,11 +67,11 @@ const exAbilityList = [
   },
 ];
 
-export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProps & StylesProps) => {
-  const { classes, freeAbilityList } = props;
+export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProps) => {
+  const { classes, freeAbilityList, djeetaUI } = props;
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} style={{ display: djeetaUI.showCurrentFreeAility ? '' : 'none' }}>
       <Typography color="textPrimary" gutterBottom className={classes.title}>
         Freeアビリティ
       </Typography>
