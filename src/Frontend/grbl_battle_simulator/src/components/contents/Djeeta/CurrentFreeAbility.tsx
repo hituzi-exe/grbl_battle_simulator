@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UIState } from '../../../states/UIState';
+import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentFreeAbilityActions } from '../../../containers/Djeeta/currentFreeAbilityContainer';
 
@@ -15,7 +15,7 @@ import tmpIcon from '../../../images/tmpIcon.png';
 interface OwnProps {}
 interface StylesProps extends WithStyles<typeof styles> {}
 
-type CurrentFreeAbilityProps = OwnProps & DjeetaState & UIState & CurrentFreeAbilityActions & StylesProps;
+type CurrentFreeAbilityProps = OwnProps & DjeetaState & DjeetaUIState & CurrentFreeAbilityActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -68,10 +68,10 @@ const exAbilityList = [
 ];
 
 export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProps) => {
-  const { classes, freeAbilityList, djeetaUI } = props;
+  const { classes, freeAbilityList, showCurrentFreeAility } = props;
 
   return (
-    <Paper className={classes.paper} style={{ display: djeetaUI.showCurrentFreeAility ? '' : 'none' }}>
+    <Paper className={classes.paper} style={{ display: showCurrentFreeAility ? '' : 'none' }}>
       <Typography color="textPrimary" gutterBottom className={classes.title}>
         Freeアビリティ
       </Typography>

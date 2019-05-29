@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UIState } from '../../../states/UIState';
+import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentLimitBounusActions } from '../../../containers/Djeeta/currentLimitBounusContainer';
 
@@ -21,7 +21,7 @@ import tmpIcon from '../../../images/tmpIcon.png';
 
 interface OwnProps {}
 
-type CurrentAbilityProps = OwnProps & UIState & DjeetaState & CurrentLimitBounusActions;
+type CurrentAbilityProps = OwnProps & DjeetaUIState & DjeetaState & CurrentLimitBounusActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -241,10 +241,10 @@ const limitBounusList = [
 ];
 
 export const CurrentLimitBounus: React.SFC<any> = (props: CurrentAbilityProps & StylesProps) => {
-  const { classes, djeetaUI } = props;
+  const { classes, showLimitBounus } = props;
 
   return (
-    <Paper className={classes.paper} style={{ display: djeetaUI.showLimitBounus ? '' : 'none' }}>
+    <Paper className={classes.paper} style={{ display: showLimitBounus ? '' : 'none' }}>
       <Grid item container direction="row" justify="space-between">
         <Grid item>
           <Typography color="textPrimary" gutterBottom>

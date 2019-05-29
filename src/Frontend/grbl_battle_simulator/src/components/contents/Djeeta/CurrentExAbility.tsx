@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UIState } from '../../../states/UIState';
+import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 
 import { CurrentExAbilityActions } from '../../../containers/Djeeta/currentExAbilityContainer';
@@ -16,7 +16,7 @@ import tmpIcon from '../../../images/tmpIcon.png';
 interface OwnProps {}
 interface StylesProps extends WithStyles<typeof styles> {}
 
-type CurrentExAbilityProps = OwnProps & UIState & DjeetaState & CurrentExAbilityActions & StylesProps;
+type CurrentExAbilityProps = OwnProps & DjeetaUIState & DjeetaState & CurrentExAbilityActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -51,10 +51,10 @@ const exAbilityList = [
 ];
 
 export const CurrentExAbility: React.SFC<any> = (props: CurrentExAbilityProps) => {
-  const { classes, djeetaUI } = props;
+  const { classes, showCurrentExAility } = props;
 
   return (
-    <Paper className={classes.paper} style={{ display: djeetaUI.showCurrentExAility ? '' : 'none' }}>
+    <Paper className={classes.paper} style={{ display: showCurrentExAility ? '' : 'none' }}>
       <Typography color="textPrimary" gutterBottom className={classes.title}>
         Exアビリティ
       </Typography>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UIState } from '../../../states/UIState';
+import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { AbilityListActions } from '../../../containers/Djeeta/abilityListContainer';
 
@@ -19,7 +19,7 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
-type AbilityListProps = OwnProps & UIState & DjeetaState & AbilityListActions;
+type AbilityListProps = OwnProps & DjeetaUIState & DjeetaState & AbilityListActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -74,10 +74,10 @@ const abilityList = [
 ];
 
 export const AbilityList: React.SFC<any> = (props: AbilityListProps & StylesProps) => {
-  const { classes, djeetaUI } = props;
+  const { classes, showAbilityList } = props;
 
   return (
-    <Paper className={classes.paper} style={{ display: djeetaUI.showAbilityList ? '' : 'none' }}>
+    <Paper className={classes.paper} style={{ display: showAbilityList ? '' : 'none' }}>
       <List subheader={<ListSubheader>アビリティ一覧</ListSubheader>}>
         <Button size="small" color="primary" onClick={e => props.closeAbility('')}>
           close

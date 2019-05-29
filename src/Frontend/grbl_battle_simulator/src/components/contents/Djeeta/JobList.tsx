@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UIState } from '../../../states/UIState';
+import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { JobListActions } from '../../../containers/Djeeta/jobListContainer';
 
@@ -18,7 +18,7 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
-type JobListProps = OwnProps & UIState & DjeetaState & JobListActions;
+type JobListProps = OwnProps & DjeetaUIState & DjeetaState & JobListActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
@@ -73,10 +73,10 @@ const abilityList = [
 ];
 
 export const JobList: React.SFC<any> = (props: JobListProps & StylesProps) => {
-  const { classes, djeetaUI } = props;
+  const { classes, showJobList } = props;
 
   return (
-    <Paper className={classes.paper} style={{ display: djeetaUI.showJobList ? '' : 'none' }}>
+    <Paper className={classes.paper} style={{ display: showJobList ? '' : 'none' }}>
       <List subheader={<ListSubheader>ジョブ一覧</ListSubheader>}>
         <Divider light />
         {abilityList.map(({ id, icon, name, secondary }) => (

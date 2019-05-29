@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UIState } from '../../../states/UIState';
+import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentJobActions } from '../../../containers/Djeeta/currentJobContainer';
 
@@ -16,7 +16,7 @@ import ChevronRight from '@material-ui/icons/ChevronRight';
 
 interface OwnProps {}
 
-type CurrentJobProps = OwnProps & UIState & DjeetaState & CurrentJobActions;
+type CurrentJobProps = OwnProps & DjeetaUIState & DjeetaState & CurrentJobActions;
 
 interface StylesProps extends WithStyles<typeof styles> {}
 
