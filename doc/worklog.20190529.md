@@ -30,6 +30,8 @@ material-ui の v4 がでてた（現在は v3.9.3
 readme に日本語版あるやん！すげぇ！
 <https://github.com/redux-saga/redux-saga/blob/master/README_ja.md>
 
+とりあえずインストール。
+
 ```console
 > npm install --save redux-saga
 npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.7 (node_modules\chokidar\node_modules\fsevents):
@@ -43,7 +45,8 @@ found 69 vulnerabilities (63 low, 6 high)
   run `npm audit fix` to fix them, or `npm audit` for details
 ```
 
-・・・脆弱性？
+## ・・・脆弱性？
+
 とりあえず npm audit fix 実行
 
 ```consle
