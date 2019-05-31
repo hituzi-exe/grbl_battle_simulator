@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentAbilityActions } from '../../../containers/Djeeta/currentAbilityContainer';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -12,12 +12,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import tmpIcon from '../../../images/tmpIcon.png';
-
-interface OwnProps {}
-
-type CurrentAbilityProps = OwnProps & DjeetaState & CurrentAbilityActions;
-
-interface StylesProps extends WithStyles<typeof styles> {}
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -42,16 +36,11 @@ export const styles = (theme: Theme) =>
     },
   });
 
-//TODO Storeへ移動すること
-const exAbilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary: 'hoge',
-  },
-];
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type CurrentAbilityProps = OwnProps & DjeetaState & CurrentAbilityActions & StylesProps;
 
-export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps & StylesProps) => {
+export const CurrentAbility: React.SFC<any> = (props: CurrentAbilityProps) => {
   const { classes } = props;
 
   return (
@@ -77,7 +66,10 @@ interface AbilityItemProps {
 
 //TODO AbilityList.tsxと共通化すること
 const AbilityItem: React.SFC<any> = (props: AbilityItemProps & CurrentAbilityActions) => {
-  const { icon, name, secondary, ...other } = props;
+  //fix warning
+  //const { icon, name, secondary } = props;
+  const { name, secondary } = props;
+
   return (
     <React.Fragment key={name}>
       <ListItem>

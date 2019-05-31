@@ -1,9 +1,8 @@
 import * as React from 'react';
+import { Character } from './Character';
 import Grid from '@material-ui/core/Grid';
 
 interface OwnProps {}
-
-import { Character } from './Character';
 
 export const Characters: React.SFC<any> = (props: any) => {
   return (

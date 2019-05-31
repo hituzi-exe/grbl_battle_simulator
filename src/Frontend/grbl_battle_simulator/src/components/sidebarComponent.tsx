@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, WithStyles } from '@material-ui/core/styles';
 
 import { AppState } from '../states/AppState';
 import { SidebarActions } from '../containers/sidebarContainer';
@@ -22,12 +22,6 @@ import PublicIcon from '@material-ui/icons/Public';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import SettingsIcon from '@material-ui/icons/Settings';
-
-interface OwnProps {}
-
-type SidebarProps = OwnProps & AppState & SidebarActions;
-
-interface Props extends WithStyles<typeof styles> {}
 
 export const styles = (theme: any) =>
   createStyles({
@@ -96,7 +90,11 @@ const categories = [
   },
 ];
 
-export const SidebarComponent: React.SFC<any> = (props: SidebarProps & Props) => {
+interface OwnProps {}
+interface StyleProps extends WithStyles<typeof styles> {}
+type SidebarProps = OwnProps & AppState & SidebarActions & StyleProps;
+
+export const SidebarComponent: React.SFC<any> = (props: SidebarProps) => {
   const { classes, activeMenu, ...other } = props;
 
   return (

@@ -21,8 +21,6 @@ interface OwnProps {}
 type ContentProps = OwnProps & AppState;
 
 export const ContentComponent: React.SFC<any> = (props: ContentProps) => {
-  const { activeMenu } = props;
-
   return (
     <div>
       <Route exact path="/" component={Summary} />

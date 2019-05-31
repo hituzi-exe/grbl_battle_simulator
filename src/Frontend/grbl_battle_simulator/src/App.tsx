@@ -3,7 +3,6 @@ import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStyles, MuiThemeProvider, createMuiTheme, withStyles, WithStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Hidden from '@material-ui/core/Hidden';
 
 import SidebarContainer from './containers/sidebarContainer';
 import HeaderContainer from './containers/headerContainer';

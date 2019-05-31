@@ -4,35 +4,19 @@ import { CurrentJobActions } from '../../../containers/Djeeta/currentJobContaine
 
 import CharacterHeader from './CharacterHeader';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-
 import Typography from '@material-ui/core/Typography';
-
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
-
 import IconButton from '@material-ui/core/IconButton';
-
 import red from '@material-ui/core/colors/red';
-
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import ChevronRight from '@material-ui/icons/ChevronRight';
 
 import ShareIcon from '@material-ui/icons/Share';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import tmpIcon from '../../../images/Character400x157.png';
-
-interface OwnProps {}
-
-type CurrentCharacterProps = OwnProps & DjeetaState & CurrentJobActions;
-
-interface StylesProps extends WithStyles<typeof styles> {}
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -61,8 +45,12 @@ export const styles = (theme: Theme) =>
     },
   });
 
-export const Character: React.SFC<any> = (props: CurrentCharacterProps & StylesProps) => {
-  const { classes } = props;
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type CurrentCharacterProps = OwnProps & DjeetaState & CurrentJobActions & StylesProps;
+
+export const Character: React.SFC<any> = (props: CurrentCharacterProps) => {
+  //const { classes } = props;
 
   return (
     <Card>

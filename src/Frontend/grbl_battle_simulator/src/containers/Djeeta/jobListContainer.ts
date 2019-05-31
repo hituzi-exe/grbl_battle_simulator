@@ -1,5 +1,5 @@
 import { Action } from 'typescript-fsa';
-import { Dispatch, compose } from 'redux';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { State } from '../../store';
 import { jobListAction } from '../../actions/Djeeta/jobListAction';

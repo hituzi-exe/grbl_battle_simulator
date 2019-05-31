@@ -6,17 +6,12 @@ import { CurrentExAbilityActions } from '../../../containers/Djeeta/currentExAbi
 
 import { AbilityItem } from './AbilityItem';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 
 import tmpIcon from '../../../images/tmpIcon.png';
-
-interface OwnProps {}
-interface StylesProps extends WithStyles<typeof styles> {}
-
-type CurrentExAbilityProps = OwnProps & DjeetaUIState & DjeetaState & CurrentExAbilityActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -41,14 +36,10 @@ export const styles = (theme: Theme) =>
     },
   });
 
-//TODO Storeへ移動すること
-const exAbilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary: 'hoge',
-  },
-];
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+
+type CurrentExAbilityProps = OwnProps & DjeetaUIState & DjeetaState & CurrentExAbilityActions & StylesProps;
 
 export const CurrentExAbility: React.SFC<any> = (props: CurrentExAbilityProps) => {
   const { classes, showCurrentExAility } = props;

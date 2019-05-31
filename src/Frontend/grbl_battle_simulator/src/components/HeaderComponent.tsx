@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, WithStyles } from '@material-ui/core/styles';
 
 import { AppState } from '../states/AppState';
 import { HeaderActions } from '../containers/headerContainer';
@@ -12,12 +12,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
-
-interface OwnProps {}
-
-type HeaderProps = OwnProps & AppState & HeaderActions;
-
-interface StylesProps extends WithStyles<typeof styles> {}
 
 export const styles = () =>
   createStyles({
@@ -33,8 +27,12 @@ export const styles = () =>
     },
   });
 
-export const HeaderComponent: React.SFC<any> = (props: HeaderProps & StylesProps) => {
-  const { classes, isLogin, ...other } = props;
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type HeaderProps = OwnProps & AppState & HeaderActions & StylesProps;
+
+export const HeaderComponent: React.SFC<any> = (props: HeaderProps) => {
+  const { classes, isLogin } = props;
 
   return (
     <AppBar position="static">

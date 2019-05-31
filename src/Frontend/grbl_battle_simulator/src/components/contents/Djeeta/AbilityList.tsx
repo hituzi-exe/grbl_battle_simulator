@@ -3,7 +3,7 @@ import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { AbilityListActions } from '../../../containers/Djeeta/abilityListContainer';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
@@ -13,12 +13,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import ChevronRight from '@material-ui/icons/ChevronRight';
-
-interface OwnProps {}
-
-type AbilityListProps = OwnProps & DjeetaUIState & DjeetaState & AbilityListActions;
-
-interface StylesProps extends WithStyles<typeof styles> {}
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -70,7 +64,11 @@ const abilityList = [
   },
 ];
 
-export const AbilityList: React.SFC<any> = (props: AbilityListProps & StylesProps) => {
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type AbilityListProps = OwnProps & DjeetaUIState & DjeetaState & AbilityListActions & StylesProps;
+
+export const AbilityList: React.SFC<any> = (props: AbilityListProps) => {
   const { classes, showAbilityList } = props;
 
   return (
@@ -97,7 +95,10 @@ interface AbilityItemProps {
 
 //TODO CurrentAbility.tsxと共通化すること
 const AbilityItem: React.SFC<any> = (props: AbilityItemProps & AbilityListActions) => {
-  const { id, icon, name, secondary, selectAbility, ...other } = props;
+  // fix warning
+  //const { id, icon, name, secondary, selectAbility, ...other } = props;
+  const { name, secondary, selectAbility } = props;
+
   return (
     <React.Fragment key={name}>
       <ListItem button onClick={() => selectAbility(name)}>

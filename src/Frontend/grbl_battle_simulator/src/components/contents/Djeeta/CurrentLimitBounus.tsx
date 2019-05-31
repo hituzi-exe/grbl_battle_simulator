@@ -3,27 +3,16 @@ import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentLimitBounusActions } from '../../../containers/Djeeta/currentLimitBounusContainer';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-
-import ChevronRight from '@material-ui/icons/ChevronRight';
 
 import tmpIcon from '../../../images/tmpIcon.png';
-
-interface OwnProps {}
-
-type CurrentAbilityProps = OwnProps & DjeetaUIState & DjeetaState & CurrentLimitBounusActions;
-
-interface StylesProps extends WithStyles<typeof styles> {}
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -240,7 +229,11 @@ const limitBounusList = [
   },
 ];
 
-export const CurrentLimitBounus: React.SFC<any> = (props: CurrentAbilityProps & StylesProps) => {
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type CurrentAbilityProps = OwnProps & DjeetaUIState & DjeetaState & CurrentLimitBounusActions & StylesProps;
+
+export const CurrentLimitBounus: React.SFC<any> = (props: CurrentAbilityProps) => {
   const { classes, showLimitBounus } = props;
 
   return (
@@ -290,7 +283,7 @@ interface LimitBounusItemProps {
 }
 
 const LimitBounusItem: React.SFC<any> = (props: LimitBounusItemProps & CurrentLimitBounusActions) => {
-  const { lbclass, onClick, changeLimitBounus, ...other } = props;
+  //const { lbclass, onClick, changeLimitBounus, ...other } = props;
   return (
     <Button>
       <Grid container direction="column">

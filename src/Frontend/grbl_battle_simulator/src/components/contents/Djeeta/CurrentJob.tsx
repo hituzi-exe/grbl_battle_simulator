@@ -3,7 +3,7 @@ import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentJobActions } from '../../../containers/Djeeta/currentJobContainer';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -11,14 +11,6 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
-
-import ChevronRight from '@material-ui/icons/ChevronRight';
-
-interface OwnProps {}
-
-type CurrentJobProps = OwnProps & DjeetaUIState & DjeetaState & CurrentJobActions;
-
-interface StylesProps extends WithStyles<typeof styles> {}
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -41,7 +33,11 @@ export const styles = (theme: Theme) =>
     },
   });
 
-export const CurrentJob: React.SFC<any> = (props: CurrentJobProps & StylesProps) => {
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type CurrentJobProps = OwnProps & DjeetaUIState & DjeetaState & CurrentJobActions & StylesProps;
+
+export const CurrentJob: React.SFC<any> = (props: CurrentJobProps) => {
   const { classes } = props;
 
   return (

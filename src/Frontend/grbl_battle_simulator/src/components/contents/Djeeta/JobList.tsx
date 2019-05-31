@@ -3,7 +3,7 @@ import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { JobListActions } from '../../../containers/Djeeta/jobListContainer';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -25,11 +25,6 @@ import Looks4 from '@material-ui/icons/Looks4';
 import Filter1 from '@material-ui/icons/Filter1';
 import Filter2 from '@material-ui/icons/Filter2';
 import Close from '@material-ui/icons/Close';
-
-interface OwnProps {}
-interface StylesProps extends WithStyles<typeof styles> {}
-
-type JobListProps = OwnProps & DjeetaUIState & DjeetaState & JobListActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -111,9 +106,14 @@ const jobList2 = [
   },
 ];
 
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type JobListProps = OwnProps & DjeetaUIState & DjeetaState & JobListActions & StylesProps;
+
 interface TabContainerProps {
   children?: React.ReactNode;
 }
+
 const TabContainer: React.SFC<any> = (props: TabContainerProps) => {
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -180,7 +180,8 @@ interface JobItemProps {
 //TODO ジョブ表示用の表示項目にすること。
 // 画像、ジョブ名、得意武器、タイプは必要。
 const JobItem: React.SFC<any> = (props: JobItemProps & JobListActions) => {
-  const { id, icon, name, secondary, selectJob, ...other } = props;
+  //const { id, icon, name, secondary, selectJob } = props;
+  const { name, secondary, selectJob } = props;
   return (
     <React.Fragment key={name}>
       <ListItem button onClick={() => selectJob(name)}>

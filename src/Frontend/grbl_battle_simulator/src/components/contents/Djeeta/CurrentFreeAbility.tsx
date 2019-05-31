@@ -3,7 +3,7 @@ import { DjeetaUIState } from '../../../states/DjeetaUIState';
 import { DjeetaState } from '../../../states/djeetaState';
 import { CurrentFreeAbilityActions } from '../../../containers/Djeeta/currentFreeAbilityContainer';
 
-import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -11,11 +11,6 @@ import Divider from '@material-ui/core/Divider';
 
 import { AbilityItem } from './AbilityItem';
 import tmpIcon from '../../../images/tmpIcon.png';
-
-interface OwnProps {}
-interface StylesProps extends WithStyles<typeof styles> {}
-
-type CurrentFreeAbilityProps = OwnProps & DjeetaState & DjeetaUIState & CurrentFreeAbilityActions & StylesProps;
 
 export const styles = (theme: Theme) =>
   createStyles({
@@ -39,36 +34,13 @@ export const styles = (theme: Theme) =>
       maxHeight: '100%',
     },
   });
-//TODO Storeへ移動すること
-const abilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary: 'hoge',
-  },
-  {
-    icon: 'https://example.com/api/icon/2.jpg',
-    name: 'ability2',
-    secondary: 'hoge',
-  },
-  {
-    icon: 'https://example.com/api/icon/3.jpg',
-    name: 'ability3',
-    secondary: 'hoge',
-  },
-];
 
-//TODO Storeへ移動すること
-const exAbilityList = [
-  {
-    icon: 'https://example.com/api/icon/1.jpg',
-    name: 'ability1',
-    secondary: 'hoge',
-  },
-];
+interface OwnProps {}
+interface StylesProps extends WithStyles<typeof styles> {}
+type CurrentFreeAbilityProps = OwnProps & DjeetaState & DjeetaUIState & CurrentFreeAbilityActions & StylesProps;
 
 export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProps) => {
-  const { classes, freeAbilityList, showCurrentFreeAility } = props;
+  const { classes, showCurrentFreeAility } = props;
 
   return (
     <Paper className={classes.paper} style={{ display: showCurrentFreeAility ? '' : 'none' }}>

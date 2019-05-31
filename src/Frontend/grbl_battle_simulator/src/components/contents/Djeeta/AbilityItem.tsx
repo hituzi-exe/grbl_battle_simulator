@@ -10,8 +10,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import ChevronRight from '@material-ui/icons/ChevronRight';
 
-interface StylesProps extends WithStyles<typeof styles> {}
-
 export const styles = (theme: Theme) =>
   createStyles({
     root: {
@@ -35,6 +33,8 @@ export const styles = (theme: Theme) =>
     },
   });
 
+interface StylesProps extends WithStyles<typeof styles> {}
+
 export interface AbilityItemProps {
   icon: string;
   name: string;
@@ -44,7 +44,7 @@ export interface AbilityItemProps {
 }
 
 export const AbilityItem: React.SFC<any> = (props: AbilityItemProps & StylesProps & CurrentFreeAbilityActions) => {
-  const { classes, icon, name, secondary, changingAbility, onClick, ...other } = props;
+  const { icon, name, secondary, changingAbility, onClick } = props;
   return (
     <React.Fragment key={name}>
       <ListItem>

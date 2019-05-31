@@ -9,7 +9,6 @@ import Avatar from '@material-ui/core/Avatar';
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-interface StylesProps extends WithStyles<typeof styles> {}
 export const styles = (theme: Theme) =>
   createStyles({
     root: {
@@ -31,6 +30,7 @@ export const styles = (theme: Theme) =>
     },
   });
 
+interface StylesProps extends WithStyles<typeof styles> {}
 interface CharacterProps {
   rarity: 'R' | 'SR' | 'SSR';
   title: string;
