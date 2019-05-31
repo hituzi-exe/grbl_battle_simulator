@@ -52,19 +52,19 @@ export const CurrentFreeAbility: React.SFC<any> = (props: CurrentFreeAbilityProp
       <AbilityItem
         icon={tmpIcon}
         name={props.freeAbility1}
-        changingAbility={props.changingAbility}
+        isChangingAbility={props.isFreeAbility1Changing}
         onClick={props.changeFreeAbility1}
       />
       <AbilityItem
         icon={tmpIcon}
         name={props.freeAbility2}
-        changingAbility={props.changingAbility}
+        isChangingAbility={props.isFreeAbility2Changing}
         onClick={props.changeFreeAbility2}
       />
       <AbilityItem
         icon={tmpIcon}
         name={props.freeAbility3}
-        changingAbility={props.changingAbility}
+        isChangingAbility={props.isFreeAbility3Changing}
         onClick={props.changeFreeAbility3}
       />
     </Paper>

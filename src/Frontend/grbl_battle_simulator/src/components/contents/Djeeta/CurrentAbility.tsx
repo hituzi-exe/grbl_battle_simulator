@@ -60,7 +60,7 @@ interface AbilityItemProps {
   icon: string;
   name: string;
   secondary: string;
-  changingAbility: string;
+  isChangingAbility: boolean;
   onClick(v: string): void;
 }
 

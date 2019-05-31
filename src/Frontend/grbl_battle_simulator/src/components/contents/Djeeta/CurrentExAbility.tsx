@@ -54,7 +54,7 @@ export const CurrentExAbility: React.SFC<any> = (props: CurrentExAbilityProps) =
       <AbilityItem
         icon={tmpIcon}
         name={props.exAbility}
-        changingAbility={props.changingAbility}
+        isChangingAbility={props.isExAbilityChanging}
         onClick={props.changeExAbility}
       />
     </Paper>

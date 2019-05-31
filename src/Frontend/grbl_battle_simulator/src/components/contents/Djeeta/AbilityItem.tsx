@@ -39,18 +39,18 @@ export interface AbilityItemProps {
   icon: string;
   name: string;
   secondary: string;
-  changingAbility: string;
+  isChangingAbility: boolean;
   onClick(v: string): void;
 }
 
 export const AbilityItem: React.SFC<any> = (props: AbilityItemProps & StylesProps & CurrentFreeAbilityActions) => {
-  const { icon, name, secondary, changingAbility, onClick } = props;
+  const { icon, name, secondary, isChangingAbility, onClick } = props;
   return (
     <React.Fragment key={name}>
       <ListItem>
         <img src={icon} alt="icon" />
         <ListItemText primary={name} secondary={secondary} />
-        <Button variant={changingAbility === '' ? 'outlined' : 'contained'} color="primary" onClick={() => onClick('')}>
+        <Button variant={isChangingAbility ? 'contained' : 'outlined'} color="primary" onClick={() => onClick('')}>
           <ChevronRight />
         </Button>
       </ListItem>
